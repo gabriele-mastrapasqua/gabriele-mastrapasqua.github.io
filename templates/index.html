@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+  <div class="site-wrapper">
+    <div class="site-wrapper-inner">
+      <div class="cover-container">
+        <div class="inner cover">
+
+          <div class="row">
+           
+            <div class="col">
+              <h1 class="cover-heading">Hi! I am Gabriele Mastrapasqua 👋</h1>
+              <p>I'm a passionate technologist and open source enthusiast, software consultant, polyglot developer, and a lifelong learner.</p>
+              <p>It's my mission in life to empower creativity through software, writing, and music.</p>
+              <p>I like to walk my dog, hiking in the mountains, play some blues on my guitar.</p>
+              <p></p>
+              <!--p>
+                <ul>
+                  <li><a href="/equipment.html">Equipment</a></li>
+                </ul>
+              </p-->
+              
+              <h1 class="cover-heading">Skills</h1>
+
+              <ul>
+                <li>Python</li>
+                <li>Typescript</li>
+                <li>AWS</li>
+                <li>Docker</li>
+                <li>Terraform</li>
+                
+              </ul>
+              
+              <h1 class="cover-heading">Interested in</h1>
+
+              <ul>
+                <li>Serverless</li>
+                <li>Cloud architectures</li>
+                <li>Rust</li>
+                
+                
+              </ul>
+             
+            </div>
+            
+            <div class="col-md-4" style="padding: 30px">
+              <img src="./static/me.png" alt="me" title="my photo" class="img-me img-fluid">
+            </div>
+
+          </div>
+
+        
+         
+          <div class="row">
+            <div class="col">
+              <h1 class="cover-heading">What is like to work with me?</h1>
+
+              <p>Check my <a href="https://www.linkedin.com/in/gabriele-mastrapasqua-76ba55110">Linkedin recommendations</a></p>
+              <p>Interested? reach me out by <a href="mailto:me@gabrielemastrapasqua.com">email</a></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <h1 class="cover-heading">Contacts</h1>
+
+              <p>
+                I live in Milan, Italy 🇮🇹. <a href="mailto:me@gabrielemastrapasqua.com">Reach out</a> if you'd like to chat.
+              </p>
+              
+              <p class="footer links">
+                <a href="https://gabrielemastrapasqua.com/blog" title="Blog"><i class="fas fa-rss" aria-hidden="true"></i></a> ·
+                <a href="https://github.com/gabriele-mastrapasqua" rel="noopener" title="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a> ·
+                <a href="https://www.linkedin.com/in/gabriele-mastrapasqua-76ba55110/" rel="noopener" title="Linkedin"><i class="fab fa-linkedin" aria-hidden="true"></i></a> ·
+                <a href="mailto:me@gabrielemastrapasqua.com" title="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- microdata for google -->
+  <div itemscope="" itemtype="http://data-vocabulary.org/Person" class="hidden">
+    <span itemprop="name">Gabriele Mastrapasqua</span>
+    <span itemprop="nickname">Gabriele</span>
+    <a href="http://gabrielemastrapasqua.com/" itemprop="url">gabrielemastrapasqua.com</a>
+    <span itemprop="address" itemscope="" itemtype="http://data-vocabulary.org/Address">
+      <span itemprop="locality">Milan</span>,
+      <span itemprop="state">Italy</span>
+    </span>
+  </div>
+
+
+
+{% endblock %}
