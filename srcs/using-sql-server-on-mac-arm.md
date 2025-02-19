@@ -4,14 +4,16 @@ date: 2025-02-13
 description: Let's run a docker container for SQL Server development even on mac m1
 ---
 
-Yesterday I was running in an issue: I was developing a docker compose file and for a customer where I need to use SQL Server as the database. 
-I use a macbook pro m1 since the middle of 2021, and never got to use SQL Server as my main database locally.
+Yesterday when writing a docker compose I had found an issue realted to SQL Server and macbooks running ARM processors (M1 and the likes). I was writing this docker compose file for my customer's project that needs to use a SQL Server as their database. 
+I work using a macbook pro m1 since the middle of 2021, and never got to try using SQL Server as my main database.
 
 The issue is that the main docker containers for SQL Server doesn't have an ARM build, and using Rosetta emulation doesn't always works within their image... 
 
-So, another way is to use the image: `mcr.microsoft.com/azure-sql-edge:latest`! This image is a lightweight version of latest SQL Server and is compatible with ARM processors!
+So, another way is to use the image: [`mcr.microsoft.com/azure-sql-edge:latest`](https://hub.docker.com/r/microsoft/azure-sql-edge). This image is a lightweight version of latest SQL Server based on Microsoft product [Azure SQL Edge](https://azure.microsoft.com/en-us/products/azure-sql/edge/), it's the version used for edge and IoT and is compatible with ARM processors!
 
-This is my `docker-compose` file used for local developemnt:
+Yay! 😊
+
+This is my `docker-compose` file used for local development:
 
 ```yaml
 version: '3.8'
