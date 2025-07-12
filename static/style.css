@@ -82,6 +82,8 @@ nav dt {
 
 h1 {
   color: #265483;
+  font-size: 160%;
+
 }
 
 h1 .rss {
@@ -98,7 +100,6 @@ h6 {
   margin-top: 1.2em;
   margin-bottom: 1em;
   font-weight: 700;
-  font-size: 160%;
 }
 
 code {
