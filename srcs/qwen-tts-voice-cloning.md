@@ -1,7 +1,7 @@
 ---
 title: "Qwen3-TTS Voice Cloning in a Pure C Engine: 785 MB, 16 MB, or 4 KB?"
 date: 2026-04-12
-description: Clone any voice from 30 seconds of public-domain audio, save it as a portable .qvoice, and reuse it anywhere — CLI, HTTP server, streaming. Pick the storage format: bit-identical (785 MB), small-and-shareable (16 MB), or postcard-sized (4 KB).
+description: "Clone any voice from 30 seconds of public-domain audio, save it as a portable .qvoice, and reuse it anywhere — CLI, HTTP server, streaming. Pick the storage format — bit-identical (785 MB), small-and-shareable (16 MB), or postcard-sized (4 KB)."
 ---
 
 ![Qwen-TTS voice cloning cover](/static/qwen-tts-voice-clone.png)
