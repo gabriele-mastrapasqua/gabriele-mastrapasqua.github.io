@@ -78,17 +78,18 @@ The result is one flag:
 
 ## Mixing emotions: dyads, and switching mid-sentence
 
-Here's the fun part. If emotion is a *direction* in activation space, then directions **add**. Take the "anger" vector and the "disgust" vector, sum them 50/50, and you get something that is neither — a coherent, recognizable **contempt**. It just works, and seven blends (Plutchik's "dyads") fall out of the six primaries we already had:
+Here's the fun part. If emotion is a *direction* in activation space, then directions **add**. Take the "anger" vector and the "disgust" vector, sum them 50/50, and you get something that is neither — a coherent, recognizable **contempt**. It just works, and seven blends (Plutchik's "dyads") fall out of the six primaries we already had. The full menu:
 
-| Dyad | = | Reads as |
+| `--emotion` | Kind | What it is |
 |---|---|---|
-| contempt | anger + disgust | sneering disdain |
-| awe | fear + surprise | hushed wonder |
-| nostalgia | joy + sad | bittersweet fondness |
-| remorse | sad + disgust | guilty regret |
-| outrage | anger + surprise | indignant shock |
-| despair | fear + sad | hopeless dread |
-| disapproval | surprise + sad | let-down reproach |
+| `sad` · `joy` · `anger` · `fear` · `disgust` · `surprise` | primary | the six base emotions (synonyms like `happy` / `angry` work too) |
+| `contempt` | dyad | anger + disgust → sneering disdain |
+| `awe` | dyad | fear + surprise → hushed wonder |
+| `nostalgia` | dyad | joy + sad → bittersweet fondness |
+| `disapproval` | dyad | surprise + sad → let-down reproach |
+| `remorse` | dyad | sad + disgust → guilty regret |
+| `outrage` | dyad | anger + surprise → indignant shock |
+| `despair` | dyad | fear + sad → hopeless dread |
 
 No new training, no new capture — just a script that sums two vectors, and seven new `--emotion` values appear. (One thing the ear caught: `joy`-paired blends over-drive on long English sentences, so `nostalgia` ships 40/60 sad-leaning. Vectors add — but the mix ratio still matters.)
 
@@ -103,15 +104,24 @@ One file, three emotions, no splicing — the steering vector is simply swapped 
 
 **One system, everywhere — which meant deleting our own earlier work.** We'd built an older, weaker per-sentence emotion path on a different mechanism. It's retired. Now the CLI `--emotion` flag, the inline `[emotion]` tags, *and* the HTTP server's `emotion` field all route through the **same** steering recipe — so a dyad you find on the command line behaves identically in a server request, and a REST client can stream `[joy]…[sad]…` markup and get per-sentence emotion for free. One recipe, three surfaces.
 
-## Bonus: paralinguistics without a splice
+## Paralinguistics: inline events — 🧪 work in progress
 
-Emotion is prosody. **Paralinguistics** — a laugh, a sigh — is an *event*. We ship `[laugh]`, `[sigh]` and friends as inline tags:
+Emotion is prosody; **paralinguistics** — a laugh, a sigh, a yawn — is an *event*. We ship a handful as inline tags. Each fires **in one generation, in the voice's own timbre** — no splice (a spliced laugh sounds like a *different person* laughing; the tag becomes a validated onomatopoeia *inside* the sentence instead, so it's your clone doing it):
+
+| Tag | Event |
+|---|---|
+| `[laugh]` | a real chuckle |
+| `[sigh]` | a sigh |
+| `[yawn]` | a yawn |
+| `[wow]` | a "wow!" interjection |
+| `[giggle]` | a sly giggle (best on its own — pairing it with `joy` over-drives it) |
+| `[scoff]` | a dismissive *tsk* |
 
 ```bash
-./qwen_tts --text "That's hilarious [laugh] I can't even."
+./qwen_tts --text "That's hilarious [laugh] I can't even. [sigh] Okay, back to work."
 ```
 
-The naive approach is to splice a separate laugh clip in — but a splice sounds like a *different person* laughing. Instead, the tag triggers the event **inline, in one generation, in the voice's own timbre**, so it's your clone laughing, not a stranger. That took its own round of onomatopoeia-by-seed hunting to make it universal across voices and languages.
+**Fair warning — treat this as alpha.** It's hit-or-miss across voices and languages (laughs and sighs land best), and it's parked for now rather than under active development. But it works often enough to be fun, and it's very much worth a try: if it breaks in an interesting way on your voice or language, that's exactly the kind of bug report that makes it better. Finding a universal onomatopoeia-per-event was its own long hunt, and there's surely more to find.
 
 ## Takeaways
 
