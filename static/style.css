@@ -240,6 +240,217 @@ footer {
   color: #666;
 }
 
+/* Projects page */
+
+.projects-page {
+  --project-ink: #265483;
+  --project-accent: #00999b;
+  margin-top: 3.5em;
+}
+
+.projects-intro {
+  max-width: 36em;
+  margin-bottom: 2.5em;
+}
+
+.projects-intro h1 {
+  margin: 0.15em 0 0.5em;
+  font-size: 240%;
+}
+
+.projects-intro > p:last-child {
+  color: #526773;
+  font-size: 110%;
+  line-height: 1.65;
+}
+
+.projects-eyebrow,
+.project-kicker,
+.project-number {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 70%;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.projects-eyebrow,
+.project-kicker {
+  color: var(--project-accent);
+}
+
+.project-featured,
+.project-card {
+  border: 1px solid rgba(38, 84, 131, 0.18);
+  border-radius: 0.65rem;
+  background: rgba(255, 255, 255, 0.68);
+  box-shadow: 0 0.6rem 1.8rem rgba(38, 84, 131, 0.07);
+}
+
+.project-featured {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(15rem, 0.9fr);
+  gap: 2rem;
+  padding: 2rem;
+  border-top: 0.3rem solid #e25e6a;
+}
+
+.project-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.project-number {
+  color: #e25e6a;
+}
+
+.project-featured h2,
+.project-card h2 {
+  margin: 0.35em 0 0.55em;
+  font-size: 155%;
+}
+
+.project-card h2 a {
+  color: var(--project-ink);
+}
+
+.project-card h2 a:hover,
+.project-card h2 a:focus {
+  color: #e25e6a;
+}
+
+.project-card h2 span {
+  color: #e25e6a;
+  font-size: 65%;
+}
+
+.project-featured p,
+.project-card p {
+  line-height: 1.6;
+}
+
+.project-lead {
+  color: #324f61;
+  font-size: 108%;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 1.35rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-tags li {
+  padding: 0.25rem 0.55rem;
+  border: 1px solid rgba(0, 153, 155, 0.3);
+  border-radius: 2rem;
+  color: #26787a;
+  background: rgba(232, 250, 252, 0.7);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 65%;
+}
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.6rem;
+}
+
+.project-button {
+  display: inline-block;
+  padding: 0.55rem 0.9rem;
+  border-radius: 0.3rem;
+  color: #fff;
+  background: var(--project-ink);
+  font-size: 85%;
+}
+
+.project-button:hover,
+.project-button:focus {
+  color: #fff;
+  background: #e25e6a;
+}
+
+.project-text-link {
+  font-size: 80%;
+}
+
+.project-terminal {
+  align-self: center;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background: #263746;
+  box-shadow: 0 0.8rem 1.5rem rgba(25, 42, 55, 0.18);
+  font-size: 68%;
+}
+
+.terminal-bar {
+  display: flex;
+  gap: 0.35rem;
+  padding: 0.65rem 0.75rem;
+  background: #344a5b;
+}
+
+.terminal-bar span {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: #e25e6a;
+}
+
+.terminal-bar span:nth-child(2) {
+  background: #e8b65b;
+}
+
+.terminal-bar span:nth-child(3) {
+  background: #41b990;
+}
+
+.project-terminal code {
+  display: block;
+  padding: 1.3rem;
+  color: #edf9fa;
+  line-height: 1.65;
+}
+
+.terminal-comment {
+  color: #91a9b7;
+}
+
+.terminal-prompt,
+.terminal-ok {
+  color: #66d7b0;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+.project-card .project-tags {
+  margin-top: auto;
+  padding-top: 0.8rem;
+}
+
+.projects-more {
+  margin: 2.5rem 0 1rem;
+  color: #526773;
+  text-align: center;
+}
+
 @media (max-width: 768px) {
   .disclaimer,
   .info {
@@ -249,6 +460,20 @@ footer {
   .disclaimer {
     margin-top: 1em;
   }
+
+  .projects-page {
+    margin-top: 2.5em;
+  }
+
+  .project-featured,
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-featured {
+    padding: 1.35rem;
+  }
+
 }
 
 .image-caption {

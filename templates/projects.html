@@ -1,0 +1,137 @@
+{% extends "layout.html" %}
+
+{% block title %}Projects{% endblock %}
+
+{% block meta %}
+  <meta name="description" content="Open source projects by Gabriele Mastrapasqua: local AI, developer tools, document processing, and inference benchmarks.">
+{% endblock %}
+
+{% block content %}
+<main class="projects-page">
+  <header class="projects-intro">
+    <p class="projects-eyebrow">Open source, built in public</p>
+    <h1>Projects</h1>
+    <p>
+      Things I build to make local AI, search, and developer workflows more useful.
+      Small dependencies, practical interfaces, and software you can actually own.
+    </p>
+  </header>
+
+  <section class="project-featured" aria-labelledby="qwen3-tts-title">
+    <div class="project-featured-copy">
+      <div class="project-heading">
+        <span class="project-number">01</span>
+        <span class="project-kicker">Featured project</span>
+      </div>
+      <h2 id="qwen3-tts-title">qwen3-tts</h2>
+      <p class="project-lead">
+        A lightweight, cross-platform inference engine for Qwen3-TTS, written in pure C.
+        No Python, PyTorch, or ONNX runtime—just C, BLAS, and raw model weights.
+      </p>
+      <p>
+        It runs the complete text-to-speech pipeline locally, supports the 0.6B and 1.7B
+        models, nine voices and ten languages, with voice cloning, streaming, quantization,
+        emotion controls, and optional Metal and CUDA backends.
+      </p>
+      <ul class="project-tags" aria-label="Technologies">
+        <li>C</li>
+        <li>Local AI</li>
+        <li>Text to speech</li>
+        <li>Metal + CUDA</li>
+      </ul>
+      <div class="project-actions">
+        <a class="project-button" href="https://github.com/gabriele-mastrapasqua/qwen3-tts" target="_blank" rel="noopener">
+          <i class="fab fa-github" aria-hidden="true"></i> View on GitHub <span aria-hidden="true">↗</span>
+        </a>
+        <a class="project-text-link" href="/blog/qwen-tts-pure-c-inference/">Read the story behind it →</a>
+      </div>
+    </div>
+    <div class="project-terminal" aria-hidden="true">
+      <div class="terminal-bar"><span></span><span></span><span></span></div>
+      <code><span class="terminal-comment"># build the pure C engine</span><br>
+        <span class="terminal-prompt">$</span> make blas<br><br>
+        <span class="terminal-comment"># synthesize a voice locally</span><br>
+        <span class="terminal-prompt">$</span> ./qwen_tts <br>
+        &nbsp;&nbsp;-d qwen3-tts-0.6b <br>
+        &nbsp;&nbsp;--text "Hello, world!"<br><br>
+        <span class="terminal-ok">✓ wrote output.wav</span>
+      </code>
+    </div>
+  </section>
+
+  <section class="projects-grid" aria-label="More open source projects">
+    <article class="project-card">
+      <div class="project-heading">
+        <span class="project-number">02</span>
+        <span class="project-kicker">Local-first</span>
+      </div>
+      <h2><a href="https://github.com/gabriele-mastrapasqua/linklore" target="_blank" rel="noopener">linklore <span aria-hidden="true">↗</span></a></h2>
+      <p>
+        Bookmarks you actually own. A local-first link manager with hybrid FTS5 + semantic
+        search and private RAG chat with citations—all in one Go binary and one SQLite file.
+      </p>
+      <ul class="project-tags" aria-label="Technologies">
+        <li>Go</li>
+        <li>SQLite</li>
+        <li>RAG</li>
+      </ul>
+    </article>
+
+    <article class="project-card">
+      <div class="project-heading">
+        <span class="project-number">03</span>
+        <span class="project-kicker">Document AI</span>
+      </div>
+      <h2><a href="https://github.com/gabriele-mastrapasqua/fastapi-ocr" target="_blank" rel="noopener">fastapi-ocr <span aria-hidden="true">↗</span></a></h2>
+      <p>
+        A FastAPI service for PDF and image OCR with switchable Tesseract and PaddleOCR
+        engines, automatic rotation, smart text extraction, and LLM-friendly output.
+      </p>
+      <ul class="project-tags" aria-label="Technologies">
+        <li>Python</li>
+        <li>FastAPI</li>
+        <li>OCR</li>
+      </ul>
+    </article>
+
+    <article class="project-card">
+      <div class="project-heading">
+        <span class="project-number">04</span>
+        <span class="project-kicker">Agent workflows</span>
+      </div>
+      <h2><a href="https://github.com/gabriele-mastrapasqua/codex-lean-team" target="_blank" rel="noopener">codex-lean-team <span aria-hidden="true">↗</span></a></h2>
+      <p>
+        A lean, adaptive multi-agent engineering setup for Codex CLI, with focused
+        specialists, reusable skills, safe defaults, and bounded delegation.
+      </p>
+      <ul class="project-tags" aria-label="Technologies">
+        <li>Codex CLI</li>
+        <li>AI agents</li>
+        <li>Developer tools</li>
+      </ul>
+    </article>
+
+    <article class="project-card">
+      <div class="project-heading">
+        <span class="project-number">05</span>
+        <span class="project-kicker">Inference tooling</span>
+      </div>
+      <h2><a href="https://github.com/gabriele-mastrapasqua/vllm-bench" target="_blank" rel="noopener">vllm-bench <span aria-hidden="true">↗</span></a></h2>
+      <p>
+        A lightweight CLI to stress-test any OpenAI-compatible server—including vLLM,
+        Ollama, and llama.cpp—and measure throughput, time to first token, and behavior under load.
+      </p>
+      <ul class="project-tags" aria-label="Technologies">
+        <li>Python</li>
+        <li>vLLM</li>
+        <li>Benchmarking</li>
+      </ul>
+    </article>
+  </section>
+
+  <p class="projects-more">
+    More experiments and work in progress live on
+    <a href="https://github.com/gabriele-mastrapasqua?tab=repositories" target="_blank" rel="noopener">my GitHub profile <span aria-hidden="true">↗</span></a>.
+  </p>
+</main>
+{% endblock %}
