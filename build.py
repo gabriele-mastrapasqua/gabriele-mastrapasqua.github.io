@@ -135,6 +135,13 @@ def write_projects():
     rendered = template.render()
     (dst / "index.html").write_text(rendered)
 
+def write_book():
+    dst = pathlib.Path("./docs/book")
+    dst.mkdir(parents=True, exist_ok=True)
+    template = jinja_env.get_template("book.html")
+    rendered = template.render()
+    (dst / "index.html").write_text(rendered)
+
 def write_blog_index(posts: Sequence[frontmatter.Post]):
     print("write blog index...")
     '''
@@ -172,6 +179,7 @@ def main():
     write_pygments_style_sheet()
     write_home()
     write_projects()
+    write_book()
     #write_about()
     posts = write_posts()
     write_blog_index(posts)
