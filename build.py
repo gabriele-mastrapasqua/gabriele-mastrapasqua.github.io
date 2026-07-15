@@ -1,6 +1,7 @@
 import pathlib
 from typing import Sequence
 import shutil
+import hashlib
 
 import markdown
 import markdown.extensions.fenced_code
@@ -44,6 +45,11 @@ def copy_static():
     shutil.copytree(
         pathlib.Path("./static"), pathlib.Path("./docs/static"), dirs_exist_ok=True
     )
+
+
+def get_static_version() -> str:
+    stylesheet = pathlib.Path("./static/style.css").read_bytes()
+    return hashlib.sha256(stylesheet).hexdigest()[:12]
 
 
 def get_sources():
@@ -175,6 +181,7 @@ def write_cname():
 
 
 def main():
+    jinja_env.globals["static_version"] = get_static_version()
     copy_static()
     write_pygments_style_sheet()
     write_home()
