@@ -1,10 +1,16 @@
 {% extends "layout.html" %}
+{% from "_seo.html" import metadata %}
 
 {% block title %}About Me{% endblock %}
 
 {% block meta %}
-<link rel="canonical" href="https://gabrielemastrapasqua.com/about/">
-<meta name="description" content="About Gabriele Mastrapasqua: freelance software consultant, open source developer, lifelong learner, mountain walker, dog person, and blues guitar player.">
+{{ metadata(
+  "About Me",
+  "About Gabriele Mastrapasqua: freelance software consultant, open source developer, lifelong learner, mountain walker, dog person, and blues guitar player.",
+  "https://gabrielemastrapasqua.com/about/",
+  "https://gabrielemastrapasqua.com/static/me.png",
+  "Gabriele Mastrapasqua with his dog Ector"
+) }}
 {% endblock %}
 
 {% block content %}

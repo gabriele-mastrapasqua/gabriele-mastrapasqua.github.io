@@ -1,20 +1,39 @@
 {% extends "layout.html" %}
+{% from "_seo.html" import metadata %}
 
 {% block title %}Software Consultant & Open Source Developer{% endblock %}
 
 {% block meta %}
-<link rel="canonical" href="https://gabrielemastrapasqua.com/">
-<meta name="description" content="Gabriele Mastrapasqua is a software consultant in Milan working across cloud architecture, product engineering, local AI, and open source.">
+{{ metadata(
+  "Software Consultant & Open Source Developer",
+  "Gabriele Mastrapasqua is a software consultant in Milan working across cloud architecture, product engineering, local AI, and open source.",
+  "https://gabrielemastrapasqua.com/",
+  "https://gabrielemastrapasqua.com/static/me.png",
+  "Gabriele Mastrapasqua with his dog Ector"
+) }}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Gabriele Mastrapasqua",
-  "url": "https://gabrielemastrapasqua.com/",
-  "jobTitle": "Software Consultant",
-  "sameAs": [
-    "https://github.com/gabriele-mastrapasqua",
-    "https://www.linkedin.com/in/gabriele-mastrapasqua-76ba55110/"
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://gabrielemastrapasqua.com/#website",
+      "url": "https://gabrielemastrapasqua.com/",
+      "name": "Gabriele Mastrapasqua"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://gabrielemastrapasqua.com/#person",
+      "name": "Gabriele Mastrapasqua",
+      "url": "https://gabrielemastrapasqua.com/",
+      "image": "https://gabrielemastrapasqua.com/static/me.png",
+      "jobTitle": "Software Consultant",
+      "sameAs": [
+        "https://github.com/gabriele-mastrapasqua",
+        "https://www.linkedin.com/in/gabriele-mastrapasqua-76ba55110/",
+        "https://dev.to/gabrielemastrapasqua"
+      ]
+    }
   ]
 }
 </script>

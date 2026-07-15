@@ -1,37 +1,24 @@
 {% extends "layout.html" %}
+{% from "_seo.html" import metadata %}
 
 {% block title %}{{post.title}}{% endblock %}
 
 {% block meta %}
-<link rel="canonical" href="https://gabrielemastrapasqua.com/blog/{{post.stem}}/">
-<meta property="og:type" content="article">
-<meta property="og:title" content="{{post.title|e}} - Gabriele Mastrapasqua">
-<meta property="twitter:title" content="{{post.title|e}} - Gabriele Mastrapasqua">
-
-{% if post.description %}
-<meta name="description" content="{{post.description|e}}">
-<meta property="og:description" content="{{post.description|e}}">
-<meta property="twitter:description" content="{{post.description|e}}">
-{% endif %}
-
-{% if post.preview_image %}
-<meta property="og:image" content="https://gabrielemastrapasqua.com/{{post.stem}}/{{post.preview_image}}">
-<meta property="twitter:image" content="https://gabrielemastrapasqua.com/{{post.stem}}/{{post.preview_image}}">
-{% endif %}
-
-{% if post.preview_image_alt %}
-<meta name="twitter:image:alt" content="{{post.preview_image_alt}}">
-{% endif %}
-
-<meta property="og:url" content="https://gabrielemastrapasqua.com/blog/{{post.stem}}/">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@theavalkyrie">
+{{ metadata(
+  post.title,
+  post.description,
+  "https://gabrielemastrapasqua.com/blog/" ~ post.stem ~ "/",
+  post.social_image,
+  post.social_image_alt,
+  "article"
+) }}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": {{ post.title|tojson }},
   "description": {{ post.description|default('', true)|tojson }},
+  "image": {{ post.social_image|tojson }},
   "datePublished": "{{ post.date.isoformat() }}",
   "dateModified": "{{ post.lastmod.isoformat() }}",
   "author": {

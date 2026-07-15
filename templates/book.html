@@ -1,13 +1,16 @@
 {% extends "layout.html" %}
+{% from "_seo.html" import metadata %}
 
 {% block title %}AWS Cloud Practitioner Exam Guide{% endblock %}
 
 {% block meta %}
-  <link rel="canonical" href="https://gabrielemastrapasqua.com/book/">
-  <meta name="description" content="AWS Cloud Practitioner Exam Guide by Gabriele Mastrapasqua—a practical, structured guide to AWS fundamentals and Cloud Practitioner certification.">
-  <meta property="og:title" content="AWS Cloud Practitioner Exam Guide — Gabriele Mastrapasqua">
-  <meta property="og:description" content="The AWS guide I wish I had when I was starting out.">
-  <meta property="og:image" content="https://gabrielemastrapasqua.com/static/aws-cloud-practitioner-exam-guide.jpg">
+{{ metadata(
+  "AWS Cloud Practitioner Exam Guide",
+  "AWS Cloud Practitioner Exam Guide by Gabriele Mastrapasqua—a practical, structured guide to AWS fundamentals and Cloud Practitioner certification.",
+  "https://gabrielemastrapasqua.com/book/",
+  "https://gabrielemastrapasqua.com/static/aws-cloud-practitioner-exam-guide.jpg",
+  "Cover of AWS Cloud Practitioner Exam Guide by Gabriele Mastrapasqua"
+) }}
 {% endblock %}
 
 {% block content %}

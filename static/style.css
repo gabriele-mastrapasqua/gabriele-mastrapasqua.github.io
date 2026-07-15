@@ -220,6 +220,24 @@ footer {
   font-size: 75%;
 }
 
+.profile-links,
+.profile-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 1.1rem;
+  row-gap: 0.25rem;
+}
+
+.profile-links {
+  margin-top: 0.3rem;
+}
+
+.profile-meta {
+  margin-top: 0.65rem;
+  font-size: 90%;
+}
+
 .info a,
 .info a:focus {
   color: #00999b;
@@ -232,6 +250,8 @@ footer {
 
 
 .name {
+  display: block;
+  font-weight: 600;
   color: #c35b7d;
 }
 
@@ -1658,6 +1678,11 @@ footer {
 
   .disclaimer {
     margin-top: 1em;
+  }
+
+  .profile-links,
+  .profile-meta {
+    justify-content: center;
   }
 
   .signal-horizon {

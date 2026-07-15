@@ -1,10 +1,16 @@
 {% extends "layout.html" %}
+{% from "_seo.html" import metadata %}
 
 {% block title %}Projects{% endblock %}
 
 {% block meta %}
-  <link rel="canonical" href="https://gabrielemastrapasqua.com/projects/">
-  <meta name="description" content="Open source projects by Gabriele Mastrapasqua: local AI, developer tools, document processing, and inference benchmarks.">
+{{ metadata(
+  "Projects",
+  "Open source projects by Gabriele Mastrapasqua: local AI, developer tools, document processing, and inference benchmarks.",
+  "https://gabrielemastrapasqua.com/projects/",
+  "https://gabrielemastrapasqua.com/static/qwen-tts-cover.png",
+  "Qwen3-TTS running locally in a pure C inference engine"
+) }}
 {% endblock %}
 
 {% block content %}

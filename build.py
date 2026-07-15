@@ -1,4 +1,5 @@
 import pathlib
+import re
 import subprocess
 from typing import Sequence
 import shutil
@@ -97,6 +98,32 @@ def post_last_modified(post: frontmatter.Post) -> datetime.date:
     return max(candidate for candidate in candidates if candidate is not None)
 
 
+def post_social_image(post: frontmatter.Post) -> tuple[str, str]:
+    """Use explicit metadata, then the first Markdown image, then a safe fallback."""
+    image = post.get("social_image")
+    alt = post.get("social_image_alt") or post.get("preview_image_alt")
+
+    if not image and post.get("preview_image"):
+        image = post["preview_image"]
+        if not image.startswith(("/", "http://", "https://")):
+            image = f"/{post['stem']}/{image}"
+
+    if not image:
+        match = re.search(r"!\[(?P<alt>[^\]]*)\]\((?P<url>[^\s)]+)", post.content)
+        if match:
+            image = match.group("url")
+            alt = alt or match.group("alt")
+
+    if not image:
+        image = "/static/me.png"
+        alt = alt or "Gabriele Mastrapasqua"
+
+    if not image.startswith(("http://", "https://")):
+        image = f"https://gabrielemastrapasqua.com/{image.lstrip('/')}"
+
+    return image, alt or f"Cover image for {post['title']}"
+
+
 def fixup_styles(content: str) -> str:
     content = content.replace("<table>", '<table class="table">')
     return content
@@ -146,6 +173,7 @@ def write_posts() -> Sequence[frontmatter.Post]:
             post["stem"] = source.stem
 
         post["lastmod"] = post_last_modified(post)
+        post["social_image"], post["social_image_alt"] = post_social_image(post)
 
         write_post(post, content)
 

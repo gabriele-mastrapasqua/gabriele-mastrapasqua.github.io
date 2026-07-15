@@ -1,10 +1,16 @@
 {% extends "layout.html" %}
+{% from "_seo.html" import metadata %}
 
 {% block title %}Blog{% endblock %}
 
 {% block meta %}
-<link rel="canonical" href="https://gabrielemastrapasqua.com/blog/">
-<meta name="description" content="Articles by Gabriele Mastrapasqua about open source, local AI, cloud, and software engineering.">
+{{ metadata(
+  "Blog",
+  "Articles by Gabriele Mastrapasqua about open source, local AI, cloud, and software engineering.",
+  "https://gabrielemastrapasqua.com/blog/",
+  "https://gabrielemastrapasqua.com/static/qwen-tts-cover.png",
+  "Articles about open source, local AI, cloud, and software engineering"
+) }}
 {% endblock %}
 
 {% block content %}

@@ -1,10 +1,16 @@
 {% extends "layout.html" %}
+{% from "_seo.html" import metadata %}
 
 {% block title %}Software Consultancy{% endblock %}
 
 {% block meta %}
-<link rel="canonical" href="https://gabrielemastrapasqua.com/consultancy/">
-<meta name="description" content="Software consultancy by Gabriele Mastrapasqua: AWS and cloud architecture, product engineering, local AI, technical direction, and delivery.">
+{{ metadata(
+  "Software Consultancy",
+  "Software consultancy by Gabriele Mastrapasqua: AWS and cloud architecture, product engineering, local AI, technical direction, and delivery.",
+  "https://gabrielemastrapasqua.com/consultancy/",
+  "https://gabrielemastrapasqua.com/static/me.png",
+  "Gabriele Mastrapasqua, independent software consultant"
+) }}
 {% endblock %}
 
 {% block content %}
