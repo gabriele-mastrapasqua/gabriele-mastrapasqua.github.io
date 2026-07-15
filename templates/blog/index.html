@@ -1,5 +1,12 @@
 {% extends "layout.html" %}
 
+{% block title %}Blog{% endblock %}
+
+{% block meta %}
+<link rel="canonical" href="https://gabrielemastrapasqua.com/blog/">
+<meta name="description" content="Articles by Gabriele Mastrapasqua about open source, local AI, cloud, and software engineering.">
+{% endblock %}
+
 {% block content %}
 <nav>
   <h1>Blog posts <a class="rss" href="/feed.xml" target="_blank" title="RSS feed"><i class="fas fa-rss"></i></a>
@@ -9,7 +16,7 @@
 
   <dl class="posts-list">
   {% for post in posts if not post.get('hidden') %}
-    <a href="/blog/{{post.stem}}">
+    <a href="/blog/{{post.stem}}/">
       <dt>{{post.title}}</dt>
       <dd>
         <time>{{post['date'].strftime('%B %d, %Y')}}</time>

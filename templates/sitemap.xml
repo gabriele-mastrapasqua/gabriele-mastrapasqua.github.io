@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{ root }}/</loc>
+  </url>
+  <url>
+    <loc>{{ root }}/blog/</loc>
+  </url>
+  <url>
+    <loc>{{ root }}/projects/</loc>
+  </url>
+  <url>
+    <loc>{{ root }}/book/</loc>
+  </url>
+  {% for post in posts if not post.get('hidden') %}
+  <url>
+    <loc>{{ root }}/blog/{{ post.stem }}/</loc>
+    <lastmod>{{ post.date.isoformat() }}</lastmod>
+  </url>
+  {% endfor %}
+</urlset>

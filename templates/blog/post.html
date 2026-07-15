@@ -3,12 +3,15 @@
 {% block title %}{{post.title}}{% endblock %}
 
 {% block meta %}
-<meta property="og:title" content="{{post.title}} - Gabriele Mastrapasqua">
-<meta property="twitter:title" content="{{post.title}} - Gabriele Mastrapasqua">
+<link rel="canonical" href="https://gabrielemastrapasqua.com/blog/{{post.stem}}/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{post.title|e}} - Gabriele Mastrapasqua">
+<meta property="twitter:title" content="{{post.title|e}} - Gabriele Mastrapasqua">
 
 {% if post.description %}
-<meta property="og:description" content="{{post.description}}">
-<meta property="twitter:description" content="{{post.description}}">
+<meta name="description" content="{{post.description|e}}">
+<meta property="og:description" content="{{post.description|e}}">
+<meta property="twitter:description" content="{{post.description|e}}">
 {% endif %}
 
 {% if post.preview_image %}
@@ -20,16 +23,34 @@
 <meta name="twitter:image:alt" content="{{post.preview_image_alt}}">
 {% endif %}
 
-<meta property="og:url" content="https://gabrielemastrapasqua.com/blog/{{post.stem}}">
+<meta property="og:url" content="https://gabrielemastrapasqua.com/blog/{{post.stem}}/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@theavalkyrie">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ post.title|tojson }},
+  "description": {{ post.description|default('', true)|tojson }},
+  "datePublished": "{{ post.date.isoformat() }}",
+  "author": {
+    "@type": "Person",
+    "name": "Gabriele Mastrapasqua",
+    "url": "https://gabrielemastrapasqua.com/"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://gabrielemastrapasqua.com/blog/{{ post.stem }}/"
+  }
+}
+</script>
 {% endblock %}
 
 {% block content %}
 <article>
   <aside class="timestamp">
-    <time>Posted by Gabriele on {{post['date'].strftime('%B %e, %Y')}}</time>
-    · <a href="/blog">view all posts</a>
+    <time datetime="{{ post.date.isoformat() }}">Posted by Gabriele on {{post['date'].strftime('%B %e, %Y')}}</time>
+    · <a href="/blog/">view all posts</a>
   </aside>
   <h1>{{post.title}}</h1>
   <content>

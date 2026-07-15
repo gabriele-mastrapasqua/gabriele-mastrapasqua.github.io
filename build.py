@@ -2,6 +2,7 @@ import pathlib
 from typing import Sequence
 import shutil
 import hashlib
+import datetime
 
 import markdown
 import markdown.extensions.fenced_code
@@ -172,8 +173,31 @@ def write_rss(posts: Sequence[frontmatter.Post]):
     posts = sorted(posts, key=lambda post: post["date"], reverse=True)
     path = pathlib.Path("./docs/feed.xml")
     template = jinja_env.get_template("rss.xml")
-    rendered = template.render(posts=posts, root="https://gabrielemastrapasqua.com")
+    build_date = datetime.datetime.now(datetime.timezone.utc).strftime(
+        "%a, %d %b %Y %H:%M:%S +0000"
+    )
+    rendered = template.render(
+        posts=posts,
+        root="https://gabrielemastrapasqua.com",
+        build_date=build_date,
+    )
     path.write_text(rendered)
+
+
+def write_sitemap(posts: Sequence[frontmatter.Post]):
+    path = pathlib.Path("./docs/sitemap.xml")
+    template = jinja_env.get_template("sitemap.xml")
+    rendered = template.render(
+        posts=posts,
+        root="https://gabrielemastrapasqua.com",
+    )
+    path.write_text(rendered)
+
+
+def write_robots():
+    path = pathlib.Path("./docs/robots.txt")
+    template = jinja_env.get_template("robots.txt")
+    path.write_text(template.render(root="https://gabrielemastrapasqua.com"))
 
 
 def write_cname():
@@ -191,6 +215,8 @@ def main():
     posts = write_posts()
     write_blog_index(posts)
     write_rss(posts)
+    write_sitemap(posts)
+    write_robots()
     write_cname()
 
 
