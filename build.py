@@ -149,6 +149,20 @@ def write_book():
     rendered = template.render()
     (dst / "index.html").write_text(rendered)
 
+def write_consultancy():
+    dst = pathlib.Path("./docs/consultancy")
+    dst.mkdir(parents=True, exist_ok=True)
+    template = jinja_env.get_template("consultancy.html")
+    rendered = template.render()
+    (dst / "index.html").write_text(rendered)
+
+def write_about_page():
+    dst = pathlib.Path("./docs/about")
+    dst.mkdir(parents=True, exist_ok=True)
+    template = jinja_env.get_template("about.html")
+    rendered = template.render()
+    (dst / "index.html").write_text(rendered)
+
 def write_blog_index(posts: Sequence[frontmatter.Post]):
     print("write blog index...")
     '''
@@ -211,6 +225,8 @@ def main():
     write_home()
     write_projects()
     write_book()
+    write_consultancy()
+    write_about_page()
     #write_about()
     posts = write_posts()
     write_blog_index(posts)

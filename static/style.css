@@ -240,6 +240,976 @@ footer {
   color: #666;
 }
 
+/* Site chrome and signal horizon */
+
+.signal-horizon {
+  position: relative;
+  width: 100%;
+  height: clamp(5rem, 10vw, 8rem);
+  overflow: hidden;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.signal-horizon::after {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  content: "";
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0,
+    transparent calc(8vw - 1px),
+    rgba(38, 84, 131, 0.045) 8vw
+  );
+}
+
+.signal-horizon span {
+  position: absolute;
+  left: -4%;
+  bottom: 0;
+  width: 108%;
+  height: 100%;
+  transform-origin: center bottom;
+  will-change: clip-path, transform;
+}
+
+.signal-horizon span:nth-child(1) {
+  z-index: 1;
+  clip-path: polygon(0 78%, 8% 62%, 15% 71%, 24% 41%, 32% 57%, 42% 33%, 52% 65%, 62% 43%, 72% 69%, 82% 38%, 91% 59%, 100% 45%, 100% 100%, 0 100%);
+  background:
+    repeating-linear-gradient(0deg, rgba(38, 84, 131, 0.13) 0 1px, transparent 1px 9px),
+    linear-gradient(90deg, rgba(0, 153, 155, 0.08), rgba(38, 84, 131, 0.14));
+  animation: signal-wave-one 7s ease-in-out infinite alternate;
+}
+
+.signal-horizon span:nth-child(2) {
+  z-index: 2;
+  clip-path: polygon(0 88%, 10% 74%, 19% 81%, 30% 58%, 40% 76%, 50% 47%, 61% 70%, 72% 55%, 81% 77%, 91% 61%, 100% 72%, 100% 100%, 0 100%);
+  background:
+    repeating-linear-gradient(0deg, rgba(0, 153, 155, 0.18) 0 1px, transparent 1px 8px),
+    linear-gradient(90deg, rgba(65, 185, 144, 0.12), rgba(0, 153, 155, 0.2));
+  animation: signal-wave-two 9s ease-in-out -3s infinite alternate;
+}
+
+.signal-horizon span:nth-child(3) {
+  z-index: 3;
+  clip-path: polygon(0 93%, 13% 84%, 25% 91%, 37% 72%, 49% 89%, 60% 68%, 73% 87%, 85% 73%, 100% 88%, 100% 100%, 0 100%);
+  background:
+    repeating-linear-gradient(0deg, rgba(226, 94, 106, 0.15) 0 1px, transparent 1px 7px),
+    linear-gradient(90deg, rgba(226, 94, 106, 0.1), rgba(195, 91, 125, 0.2));
+  animation: signal-wave-three 12s ease-in-out -6s infinite alternate;
+}
+
+.signal-horizon-top {
+  transform: rotate(180deg);
+}
+
+.signal-horizon-bottom {
+  height: clamp(7rem, 15vw, 11rem);
+  margin-top: -2rem;
+}
+
+@keyframes signal-wave-one {
+  from {
+    clip-path: polygon(0 78%, 8% 62%, 15% 71%, 24% 41%, 32% 57%, 42% 33%, 52% 65%, 62% 43%, 72% 69%, 82% 38%, 91% 59%, 100% 45%, 100% 100%, 0 100%);
+    transform: translate3d(-0.6%, 0, 0) scaleY(0.98);
+  }
+  to {
+    clip-path: polygon(0 69%, 8% 73%, 15% 57%, 24% 63%, 32% 39%, 42% 55%, 52% 42%, 62% 67%, 72% 45%, 82% 61%, 91% 41%, 100% 58%, 100% 100%, 0 100%);
+    transform: translate3d(0.6%, 0, 0) scaleY(1.03);
+  }
+}
+
+@keyframes signal-wave-two {
+  from {
+    clip-path: polygon(0 88%, 10% 74%, 19% 81%, 30% 58%, 40% 76%, 50% 47%, 61% 70%, 72% 55%, 81% 77%, 91% 61%, 100% 72%, 100% 100%, 0 100%);
+    transform: translate3d(0.5%, 0, 0) scaleY(1.02);
+  }
+  to {
+    clip-path: polygon(0 77%, 10% 83%, 19% 68%, 30% 79%, 40% 54%, 50% 72%, 61% 50%, 72% 76%, 81% 57%, 91% 75%, 100% 62%, 100% 100%, 0 100%);
+    transform: translate3d(-0.5%, 0, 0) scaleY(0.97);
+  }
+}
+
+@keyframes signal-wave-three {
+  from {
+    clip-path: polygon(0 93%, 13% 84%, 25% 91%, 37% 72%, 49% 89%, 60% 68%, 73% 87%, 85% 73%, 100% 88%, 100% 100%, 0 100%);
+    transform: translate3d(-0.4%, 0, 0);
+  }
+  to {
+    clip-path: polygon(0 84%, 13% 92%, 25% 78%, 37% 90%, 49% 74%, 60% 88%, 73% 70%, 85% 91%, 100% 79%, 100% 100%, 0 100%);
+    transform: translate3d(0.4%, 0, 0);
+  }
+}
+
+/* Animated system maps around the two service-oriented hero sections. */
+
+.home-hero,
+.consultancy-hero {
+  position: relative;
+  isolation: isolate;
+}
+
+.home-hero-copy,
+.consultancy-hero > :not(.architecture-assembly) {
+  position: relative;
+  z-index: 2;
+}
+
+.network-field {
+  position: absolute;
+  z-index: 1;
+  top: 1rem;
+  right: -25rem;
+  width: 27rem;
+  height: 23rem;
+  pointer-events: none;
+  opacity: 0.94;
+}
+
+.network-field::before {
+  position: absolute;
+  z-index: 0;
+  inset: -8%;
+  content: "";
+  background:
+    radial-gradient(circle at 58% 45%, rgba(38, 84, 131, 0.17), transparent 23%),
+    radial-gradient(circle at 35% 64%, rgba(0, 153, 155, 0.16), transparent 26%),
+    radial-gradient(circle at 75% 68%, rgba(226, 94, 106, 0.12), transparent 22%);
+  filter: blur(0.8rem);
+  animation: network-nebula 7s ease-in-out infinite alternate;
+}
+
+.network-field svg {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter:
+    drop-shadow(0 0 0.28rem rgba(0, 153, 155, 0.36))
+    drop-shadow(0 0.5rem 1.5rem rgba(38, 84, 131, 0.12));
+  animation: network-drift 9s ease-in-out infinite alternate;
+}
+
+.network-links path,
+.network-pulses path {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.network-links path {
+  stroke: rgba(38, 84, 131, 0.5);
+  stroke-width: 1.4;
+}
+
+.network-links path:nth-child(even) {
+  stroke: rgba(0, 153, 155, 0.5);
+}
+
+.network-links path:nth-child(3n) {
+  stroke: rgba(65, 185, 144, 0.45);
+}
+
+.network-pulses path {
+  stroke: rgba(226, 94, 106, 0.94);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 0.01 13;
+  animation: network-signal 4.8s linear infinite;
+}
+
+.network-pulses path:nth-child(2) { animation-delay: -1.4s; }
+.network-pulses path:nth-child(3) { animation-delay: -2.8s; }
+.network-pulses path:nth-child(4) { animation-delay: -3.7s; }
+
+.network-nodes circle {
+  fill: #8de0df;
+  stroke: rgba(0, 153, 155, 0.92);
+  stroke-width: 3;
+  filter: drop-shadow(0 0 0.35rem rgba(0, 153, 155, 0.78));
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: network-node 4s ease-in-out infinite alternate;
+}
+
+.network-nodes circle:nth-child(3n + 2) {
+  fill: #79a5cf;
+  stroke: rgba(38, 84, 131, 0.94);
+  filter: drop-shadow(0 0 0.38rem rgba(38, 84, 131, 0.72));
+  animation-delay: -1.6s;
+}
+
+.network-nodes circle:nth-child(3n) {
+  fill: #f18a93;
+  stroke: rgba(226, 94, 106, 0.92);
+  filter: drop-shadow(0 0 0.38rem rgba(226, 94, 106, 0.72));
+  animation-delay: -2.7s;
+}
+
+.network-nodes .network-hub {
+  fill: #9ce5c7;
+  stroke: rgba(65, 185, 144, 0.95);
+  stroke-width: 4;
+  filter: drop-shadow(0 0 0.55rem rgba(65, 185, 144, 0.82));
+}
+
+.network-stars circle {
+  fill: #fff;
+  stroke: #65c9ca;
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 0.32rem rgba(0, 153, 155, 0.82));
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: network-star 2.8s ease-in-out infinite alternate;
+}
+
+.network-stars circle:nth-child(2n) {
+  fill: #ffe1e3;
+  stroke: #e25e6a;
+  animation-delay: -1.4s;
+}
+
+.network-stars circle:nth-child(3n) {
+  animation-duration: 4.2s;
+}
+
+.network-field-home {
+  transform: rotate(-3deg);
+}
+
+.network-field-home .network-links path {
+  stroke-dasharray: 2 6;
+}
+
+.architecture-assembly {
+  position: absolute;
+  z-index: 1;
+  top: 0.4rem;
+  right: -25rem;
+  width: 28rem;
+  height: 21rem;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.architecture-assembly::before {
+  position: absolute;
+  z-index: 0;
+  inset: 2% -4%;
+  content: "";
+  background:
+    radial-gradient(circle at 45% 48%, rgba(0, 153, 155, 0.13), transparent 35%),
+    radial-gradient(circle at 65% 58%, rgba(38, 84, 131, 0.1), transparent 34%);
+  filter: blur(1rem);
+  animation: architecture-haze 8s ease-in-out infinite alternate;
+}
+
+.architecture-assembly svg {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 0.45rem 1.2rem rgba(38, 84, 131, 0.12));
+  animation: architecture-drift 9s ease-in-out infinite alternate;
+}
+
+.architecture-guides path,
+.architecture-guides circle,
+.module-trace,
+.architecture-signals path {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.architecture-guides path,
+.architecture-guides circle {
+  stroke: rgba(38, 84, 131, 0.17);
+  stroke-width: 1.2;
+  stroke-dasharray: 3 8;
+}
+
+.architecture-guides circle {
+  animation: architecture-guide 12s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.architecture-module {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: architecture-piece-a 6.5s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate;
+}
+
+.architecture-module-b {
+  animation-name: architecture-piece-b;
+  animation-delay: -1.2s;
+}
+
+.architecture-module-c {
+  animation-name: architecture-piece-c;
+  animation-delay: -0.6s;
+}
+
+.architecture-module-d {
+  animation-name: architecture-piece-d;
+  animation-delay: -1.8s;
+}
+
+.module-body {
+  fill: rgba(255, 255, 255, 0.62);
+  stroke: rgba(38, 84, 131, 0.58);
+  stroke-width: 2.5;
+  vector-effect: non-scaling-stroke;
+}
+
+.architecture-module-b .module-body,
+.architecture-module-c .module-body {
+  fill: rgba(224, 247, 244, 0.66);
+  stroke: rgba(0, 153, 155, 0.62);
+}
+
+.architecture-module-d .module-body {
+  fill: rgba(255, 239, 241, 0.64);
+  stroke: rgba(226, 94, 106, 0.58);
+}
+
+.module-trace {
+  stroke: rgba(38, 84, 131, 0.58);
+  stroke-width: 2;
+}
+
+.architecture-module circle {
+  fill: #e8fbf5;
+  stroke: #00999b;
+  stroke-width: 2.5;
+  filter: drop-shadow(0 0 0.24rem rgba(0, 153, 155, 0.58));
+}
+
+.architecture-module:nth-of-type(even) circle {
+  fill: #fff0f1;
+  stroke: #e25e6a;
+}
+
+.architecture-signals path {
+  stroke: #41b990;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 0.01 15;
+  animation: architecture-signal 4s linear infinite;
+}
+
+.architecture-signals path:nth-child(2) {
+  stroke: #e25e6a;
+  animation-delay: -1.4s;
+}
+
+.architecture-signals path:nth-child(3) {
+  stroke: #265483;
+  animation-delay: -2.8s;
+}
+
+@keyframes network-signal {
+  to { stroke-dashoffset: -100; }
+}
+
+@keyframes network-node {
+  from { opacity: 0.72; transform: scale(0.86); }
+  to { opacity: 1; transform: scale(1.18); }
+}
+
+@keyframes network-star {
+  from { opacity: 0.35; transform: scale(0.65); }
+  to { opacity: 1; transform: scale(1.35); }
+}
+
+@keyframes network-nebula {
+  from { opacity: 0.64; transform: translate3d(-0.4rem, 0.3rem, 0) scale(0.96); }
+  to { opacity: 1; transform: translate3d(0.5rem, -0.35rem, 0) scale(1.05); }
+}
+
+@keyframes network-drift {
+  from { transform: translate3d(-0.3rem, 0.4rem, 0) scale(0.985); }
+  to { transform: translate3d(0.65rem, -0.45rem, 0) scale(1.015); }
+}
+
+@keyframes architecture-signal {
+  to { stroke-dashoffset: -100; }
+}
+
+@keyframes architecture-piece-a {
+  from { transform: translate3d(-2.2rem, -1.5rem, 0) rotate(-3deg); }
+  to { transform: translate3d(0, 0, 0) rotate(0); }
+}
+
+@keyframes architecture-piece-b {
+  from { transform: translate3d(2.4rem, -1.3rem, 0) rotate(3deg); }
+  to { transform: translate3d(0, 0, 0) rotate(0); }
+}
+
+@keyframes architecture-piece-c {
+  from { transform: translate3d(-2rem, 1.7rem, 0) rotate(2.5deg); }
+  to { transform: translate3d(0, 0, 0) rotate(0); }
+}
+
+@keyframes architecture-piece-d {
+  from { transform: translate3d(2.2rem, 1.6rem, 0) rotate(-2.5deg); }
+  to { transform: translate3d(0, 0, 0) rotate(0); }
+}
+
+@keyframes architecture-guide {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes architecture-drift {
+  from { transform: translate3d(-0.3rem, 0.25rem, 0) scale(0.985); }
+  to { transform: translate3d(0.35rem, -0.3rem, 0) scale(1.015); }
+}
+
+@keyframes architecture-haze {
+  from { opacity: 0.55; transform: scale(0.94); }
+  to { opacity: 1; transform: scale(1.05); }
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  align-items: center;
+  margin-top: 0.6rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(38, 84, 131, 0.18);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 72%;
+}
+
+.site-nav a {
+  color: #265483;
+}
+
+.site-nav a:hover,
+.site-nav a:focus {
+  color: #e25e6a;
+}
+
+/* Home page */
+
+.home-page,
+.consultancy-page,
+.about-page {
+  --page-ink: #265483;
+  --page-accent: #00999b;
+  margin-top: 3.5rem;
+}
+
+.home-hero {
+  max-width: 46rem;
+}
+
+.home-eyebrow,
+.home-section-number,
+.home-work-type,
+.home-service-grid article > span,
+.consultancy-eyebrow,
+.consultancy-number,
+.consultancy-service-index {
+  color: var(--page-accent);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 68%;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.home-hero h1 {
+  max-width: 13em;
+  margin: 0.25em 0 0.5em;
+  font-size: clamp(2.1rem, 5vw, 3.35rem);
+  line-height: 1.06;
+}
+
+.home-lead {
+  max-width: 35em;
+  color: #476272;
+  font-size: 108%;
+  line-height: 1.65;
+}
+
+.home-actions,
+.consultancy-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.home-button,
+.consultancy-button {
+  display: inline-block;
+  padding: 0.62rem 0.9rem;
+  border: 1px solid #265483;
+  border-radius: 0.3rem;
+  font-size: 78%;
+}
+
+.home-button-primary,
+.consultancy-button {
+  color: #fff;
+  background: #265483;
+}
+
+.home-button-primary:hover,
+.home-button-primary:focus,
+.consultancy-button:hover,
+.consultancy-button:focus {
+  color: #fff;
+  background: #e25e6a;
+  border-color: #e25e6a;
+}
+
+.home-button-secondary {
+  color: #265483;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.home-signals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  color: #607786;
+  list-style: none;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 62%;
+}
+
+.home-signals li::before {
+  margin-right: 0.4rem;
+  color: #41b990;
+  content: "●";
+}
+
+.home-section {
+  margin-top: 4.5rem;
+}
+
+.home-section-heading {
+  max-width: 35rem;
+}
+
+.home-section-heading h2,
+.home-personal h2 {
+  margin: 0.3em 0 0.55em;
+  font-size: 175%;
+}
+
+.home-section-heading > p:last-child {
+  color: #566f7d;
+  line-height: 1.55;
+}
+
+.home-service-grid,
+.home-work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+}
+
+.home-service-grid article,
+.home-work-card {
+  padding: 1.3rem;
+  border: 1px solid rgba(38, 84, 131, 0.16);
+  border-radius: 0.55rem;
+  background: rgba(255, 255, 255, 0.58);
+  box-shadow: 0 0.5rem 1.4rem rgba(38, 84, 131, 0.05);
+}
+
+.home-service-grid h3,
+.home-work-card h3 {
+  margin: 0.55em 0 0.5em;
+  font-size: 105%;
+}
+
+.home-service-grid p,
+.home-work-card p {
+  margin: 0;
+  color: #586f7c;
+  font-size: 78%;
+  line-height: 1.55;
+}
+
+.home-inline-link {
+  display: inline-block;
+  margin-top: 1.3rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 68%;
+}
+
+.home-work-card {
+  display: block;
+  color: inherit;
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.home-work-card:hover,
+.home-work-card:focus {
+  color: inherit;
+  border-color: rgba(226, 94, 106, 0.6);
+  box-shadow: 0 0.8rem 1.8rem rgba(38, 84, 131, 0.1);
+  transform: translateY(-0.18rem);
+}
+
+.home-work-card h3 span {
+  color: #e25e6a;
+}
+
+.home-work-featured {
+  border-top: 0.25rem solid #e25e6a;
+}
+
+.home-work-book {
+  border-top: 0.25rem solid #b51f73;
+}
+
+.home-personal {
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.8fr) minmax(0, 1.2fr);
+  gap: 2rem;
+  align-items: center;
+  margin-top: 4.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(38, 84, 131, 0.15);
+  border-bottom: 1px solid rgba(38, 84, 131, 0.15);
+}
+
+.home-personal p:last-child {
+  color: #536d7b;
+  line-height: 1.7;
+}
+
+.home-contact {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  border-radius: 0.6rem;
+  color: #fff;
+  background: linear-gradient(110deg, #265483, #167f83);
+}
+
+.home-contact > p {
+  margin: 0 0 0.9rem;
+  font-size: 115%;
+  font-weight: 700;
+}
+
+.home-contact div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home-contact a {
+  color: #bff7e4;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.home-contact span {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 68%;
+}
+
+/* Consultancy page */
+
+.consultancy-hero {
+  max-width: 40rem;
+  padding: 2.2rem 0 2.8rem;
+}
+
+.consultancy-hero h1 {
+  margin: 0.25em 0 0.45em;
+  font-size: clamp(2.25rem, 6vw, 3.8rem);
+  line-height: 1.04;
+}
+
+.consultancy-lead {
+  max-width: 34em;
+  color: #496575;
+  font-size: 112%;
+  line-height: 1.7;
+}
+
+.consultancy-actions > a:not(.consultancy-button) {
+  font-size: 75%;
+}
+
+.consultancy-section {
+  margin-top: 3.5rem;
+}
+
+.consultancy-section-heading h2,
+.consultancy-fit h2,
+.consultancy-contact h2 {
+  margin: 0.3em 0 0.7em;
+  font-size: 175%;
+}
+
+.consultancy-services {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.consultancy-services article {
+  position: relative;
+  padding: 1.5rem;
+  border: 1px solid rgba(38, 84, 131, 0.16);
+  border-radius: 0.55rem;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.consultancy-services h3 {
+  margin: 0.45em 0 0.55em;
+  font-size: 110%;
+}
+
+.consultancy-services p {
+  margin: 0;
+  color: #556e7c;
+  font-size: 82%;
+  line-height: 1.6;
+}
+
+.consultancy-service-index {
+  color: #e25e6a;
+}
+
+.consultancy-approach {
+  display: grid;
+  grid-template-columns: minmax(13rem, 0.8fr) minmax(0, 1.2fr);
+  gap: 2rem;
+  padding: 2rem;
+  border-radius: 0.6rem;
+  background: rgba(38, 84, 131, 0.06);
+}
+
+.consultancy-principles {
+  display: grid;
+  gap: 1rem;
+}
+
+.consultancy-principles div {
+  display: grid;
+  grid-template-columns: minmax(8rem, 0.65fr) minmax(0, 1.35fr);
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(38, 84, 131, 0.13);
+}
+
+.consultancy-principles div:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.consultancy-principles strong {
+  color: #265483;
+  font-size: 85%;
+}
+
+.consultancy-principles span {
+  color: #58717f;
+  font-size: 78%;
+  line-height: 1.55;
+}
+
+.consultancy-fit {
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.75fr) minmax(0, 1.25fr);
+  gap: 2rem;
+  margin-top: 3.5rem;
+}
+
+.consultancy-fit ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.consultancy-fit li {
+  position: relative;
+  padding: 0.8rem 0 0.8rem 1.6rem;
+  border-bottom: 1px solid rgba(38, 84, 131, 0.13);
+  color: #4f6877;
+  line-height: 1.55;
+}
+
+.consultancy-fit li::before {
+  position: absolute;
+  left: 0;
+  color: #41b990;
+  content: "✓";
+  font-weight: 700;
+}
+
+.consultancy-contact {
+  margin-top: 3.5rem;
+  padding: 2rem;
+  border-top: 0.3rem solid #e25e6a;
+  border-radius: 0.6rem;
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: 0 0.8rem 2rem rgba(38, 84, 131, 0.07);
+}
+
+.consultancy-contact > p:not(.consultancy-number) {
+  color: #58717f;
+}
+
+.consultancy-contact > a {
+  display: inline-block;
+  margin-top: 0.7rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 78%;
+}
+
+/* About page */
+
+.about-hero {
+  display: grid;
+  grid-template-columns: minmax(16rem, 1.1fr) minmax(0, 0.9fr);
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.about-photo {
+  margin: 0;
+}
+
+.about-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 0.35rem solid rgba(255, 255, 255, 0.78);
+  border-radius: 0.65rem;
+  box-shadow: 0.8rem 0.9rem 0 rgba(0, 153, 155, 0.1), 0 1rem 2rem rgba(38, 84, 131, 0.11);
+}
+
+.about-photo p {
+  margin: 1rem 0 0;
+  color: #71828c;
+  font-size: 65%;
+  font-style: italic;
+  text-align: center;
+}
+
+.about-eyebrow,
+.about-number {
+  color: var(--page-accent);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 68%;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.about-intro h1 {
+  margin: 0.3em 0 0.6em;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  line-height: 1.08;
+}
+
+.about-intro > p:not(.about-eyebrow) {
+  color: #4f6877;
+  line-height: 1.65;
+}
+
+.about-story {
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.75fr) minmax(0, 1.25fr);
+  gap: 2.5rem;
+  margin-top: 4rem;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(38, 84, 131, 0.15);
+  border-bottom: 1px solid rgba(38, 84, 131, 0.15);
+}
+
+.about-story h2,
+.about-section-heading h2 {
+  margin: 0.3em 0 0.7em;
+  font-size: 175%;
+}
+
+.about-story-copy {
+  color: #526c7a;
+  line-height: 1.7;
+}
+
+.about-story-copy p:first-child {
+  margin-top: 0;
+}
+
+.about-interests {
+  margin-top: 4rem;
+}
+
+.about-section-heading {
+  max-width: 35rem;
+}
+
+.about-interest-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.about-interest-grid article {
+  padding: 1.35rem;
+  border: 1px solid rgba(38, 84, 131, 0.16);
+  border-radius: 0.55rem;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.about-interest-grid article > span {
+  color: #e25e6a;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.about-interest-grid h3 {
+  margin: 0.45em 0 0.5em;
+  font-size: 105%;
+}
+
+.about-interest-grid p {
+  margin: 0;
+  color: #586f7c;
+  font-size: 80%;
+  line-height: 1.55;
+}
+
+.about-note {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  border-left: 0.25rem solid #41b990;
+  border-radius: 0.35rem;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.about-note > p {
+  margin-top: 0;
+  color: #4f6877;
+  line-height: 1.65;
+}
+
+.about-note div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 72%;
+}
+
 /* Projects page */
 
 .projects-page {
@@ -693,6 +1663,84 @@ footer {
     margin-top: 1em;
   }
 
+  .signal-horizon {
+    height: 4.5rem;
+  }
+
+  .signal-horizon-bottom {
+    height: 6.5rem;
+  }
+
+  .site-nav {
+    gap: 0.35rem 0.75rem;
+    margin-top: 0;
+  }
+
+  .home-page,
+  .consultancy-page,
+  .about-page {
+    margin-top: 2.5rem;
+  }
+
+  .network-field,
+  .architecture-assembly {
+    position: relative;
+    z-index: 0;
+    top: auto;
+    right: auto;
+    width: 100%;
+    height: 13rem;
+    margin-top: 1rem;
+    overflow: hidden;
+    opacity: 0.8;
+    transform: none;
+  }
+
+  .network-field svg,
+  .architecture-assembly svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .home-personal,
+  .consultancy-approach,
+  .consultancy-fit,
+  .about-hero,
+  .about-story {
+    grid-template-columns: 1fr;
+  }
+
+  .home-service-grid,
+  .home-work-grid,
+  .consultancy-services,
+  .about-interest-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-section,
+  .home-personal {
+    margin-top: 3.5rem;
+  }
+
+  .consultancy-principles div {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
+
+  .about-hero {
+    gap: 2rem;
+  }
+
+  .about-photo {
+    order: 2;
+  }
+
+  .about-story,
+  .about-interests {
+    margin-top: 3.5rem;
+  }
+
   .projects-page {
     margin-top: 2.5em;
   }
@@ -730,6 +1778,22 @@ footer {
     flex-direction: column;
   }
 
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .signal-horizon span,
+  .network-field::before,
+  .network-field svg,
+  .network-field path,
+  .network-field circle,
+  .architecture-assembly::before,
+  .architecture-assembly svg,
+  .architecture-assembly path,
+  .architecture-assembly circle,
+  .home-work-card {
+    animation: none;
+    transition: none;
+  }
 }
 
 .image-caption {

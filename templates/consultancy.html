@@ -1,0 +1,121 @@
+{% extends "layout.html" %}
+
+{% block title %}Software Consultancy{% endblock %}
+
+{% block meta %}
+<link rel="canonical" href="https://gabrielemastrapasqua.com/consultancy/">
+<meta name="description" content="Software consultancy by Gabriele Mastrapasqua: AWS and cloud architecture, product engineering, local AI, technical direction, and delivery.">
+{% endblock %}
+
+{% block content %}
+<main class="consultancy-page">
+  <header class="consultancy-hero">
+    <p class="consultancy-eyebrow">Independent software consultant</p>
+    <h1>Technical clarity.<br>Software that ships.</h1>
+    <p class="consultancy-lead">
+      I help teams turn difficult technical questions into sound decisions and working
+      systems—from architecture and prototypes to production code and delivery.
+    </p>
+    <div class="consultancy-actions">
+      <a class="consultancy-button" href="mailto:gabriele.mastrapasqua@gmail.com?subject=Consultancy%20enquiry">Discuss a project <span aria-hidden="true">→</span></a>
+      <a href="https://www.linkedin.com/in/gabriele-mastrapasqua-76ba55110/details/recommendations/?detailScreenTabIndex=0" target="_blank" rel="noopener">Read client recommendations <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="architecture-assembly" aria-hidden="true">
+      <svg viewBox="0 0 760 500" role="presentation">
+        <g class="architecture-guides">
+          <path d="M82 70 H520 V430 H82 Z" />
+          <path d="M42 250 H598 M302 36 V464" />
+          <circle cx="302" cy="250" r="206" />
+        </g>
+        <g class="architecture-module architecture-module-a">
+          <path class="module-body" d="M100 90 H280 V130 H302 V174 H280 V230 H240 V252 H196 V230 H100 Z" />
+          <path class="module-trace" d="M132 130 H208 V178 H258" />
+          <circle cx="132" cy="130" r="6" /><circle cx="208" cy="178" r="6" /><circle cx="258" cy="178" r="6" />
+        </g>
+        <g class="architecture-module architecture-module-b">
+          <path class="module-body" d="M280 90 H500 V230 H456 V252 H412 V230 H280 V174 H302 V130 H280 Z" />
+          <path class="module-trace" d="M338 132 H396 V188 H466" />
+          <circle cx="338" cy="132" r="6" /><circle cx="396" cy="188" r="6" /><circle cx="466" cy="188" r="6" />
+        </g>
+        <g class="architecture-module architecture-module-c">
+          <path class="module-body" d="M100 230 H196 V252 H240 V230 H280 V326 H302 V370 H280 V410 H100 Z" />
+          <path class="module-trace" d="M132 368 H190 V304 H252" />
+          <circle cx="132" cy="368" r="6" /><circle cx="190" cy="304" r="6" /><circle cx="252" cy="304" r="6" />
+        </g>
+        <g class="architecture-module architecture-module-d">
+          <path class="module-body" d="M280 230 H412 V252 H456 V230 H500 V410 H280 V370 H302 V326 H280 Z" />
+          <path class="module-trace" d="M340 304 H404 V360 H468" />
+          <circle cx="340" cy="304" r="6" /><circle cx="404" cy="360" r="6" /><circle cx="468" cy="360" r="6" />
+        </g>
+        <g class="architecture-signals">
+          <path pathLength="100" d="M132 130 H208 V178 H338 V132 H466" />
+          <path pathLength="100" d="M132 368 H190 V304 H340 V360 H468" />
+          <path pathLength="100" d="M252 304 V178 H396 V304" />
+        </g>
+      </svg>
+    </div>
+  </header>
+
+  <section class="consultancy-section" aria-labelledby="consultancy-services-title">
+    <div class="consultancy-section-heading">
+      <p class="consultancy-number">01 · Services</p>
+      <h2 id="consultancy-services-title">Where I can make a difference.</h2>
+    </div>
+    <div class="consultancy-services">
+      <article>
+        <span class="consultancy-service-index">01</span>
+        <h3>Architecture & technical direction</h3>
+        <p>System design, AWS architecture, platform choices, modernization paths, reliability, and cost-aware technical strategy.</p>
+      </article>
+      <article>
+        <span class="consultancy-service-index">02</span>
+        <h3>Hands-on product engineering</h3>
+        <p>Backend services, APIs, full-stack applications, prototypes, integrations, CI/CD, and the work required to reach production.</p>
+      </article>
+      <article>
+        <span class="consultancy-service-index">03</span>
+        <h3>AI systems & data workflows</h3>
+        <p>Local and open models, inference infrastructure, RAG, document processing, evaluation, and LLM-enabled product features.</p>
+      </article>
+      <article>
+        <span class="consultancy-service-index">04</span>
+        <h3>Technical audits & rescue work</h3>
+        <p>Codebase and architecture reviews, performance bottlenecks, delivery problems, and a concrete path out of technical uncertainty.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="consultancy-section consultancy-approach" aria-labelledby="approach-title">
+    <div class="consultancy-section-heading">
+      <p class="consultancy-number">02 · How I work</p>
+      <h2 id="approach-title">Independent, direct, and close to the code.</h2>
+    </div>
+    <div class="consultancy-principles">
+      <div><strong>Senior attention</strong><span>You work with me directly—from first conversation to final handover.</span></div>
+      <div><strong>Useful outcomes</strong><span>Decisions, code, documentation, and systems your team can continue to own.</span></div>
+      <div><strong>Right-sized process</strong><span>Enough structure to reduce risk, never ceremony for its own sake.</span></div>
+      <div><strong>Knowledge transfer</strong><span>I explain the trade-offs and leave the team stronger than I found it.</span></div>
+    </div>
+  </section>
+
+  <section class="consultancy-fit" aria-labelledby="fit-title">
+    <div>
+      <p class="consultancy-number">03 · A good fit</p>
+      <h2 id="fit-title">Bring me in when…</h2>
+    </div>
+    <ul>
+      <li>You need an experienced technical perspective before making an expensive decision.</li>
+      <li>A prototype needs to become a reliable product—or a stalled product needs momentum.</li>
+      <li>Your cloud, backend, or AI system works, but not yet as well as it should.</li>
+      <li>You want temporary senior technical leadership without pretending to hire an employee.</li>
+    </ul>
+  </section>
+
+  <section class="consultancy-contact">
+    <p class="consultancy-number">Start a conversation</p>
+    <h2>Tell me what you’re building—and where it hurts.</h2>
+    <p>A useful first email includes the problem, current stack, desired outcome, and rough timeline.</p>
+    <a href="mailto:gabriele.mastrapasqua@gmail.com?subject=Consultancy%20enquiry">Let’s talk <span aria-hidden="true">→</span></a>
+  </section>
+</main>
+{% endblock %}

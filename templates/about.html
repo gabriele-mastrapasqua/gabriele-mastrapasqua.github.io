@@ -1,9 +1,93 @@
 {% extends "layout.html" %}
 
+{% block title %}About Me{% endblock %}
+
+{% block meta %}
+<link rel="canonical" href="https://gabrielemastrapasqua.com/about/">
+<meta name="description" content="About Gabriele Mastrapasqua: freelance software consultant, open source developer, lifelong learner, mountain walker, dog person, and blues guitar player.">
+{% endblock %}
+
 {% block content %}
-<nav>
-  <h1>About me</h1>
-  
-  
-</nav>
+<main class="about-page">
+  <section class="about-hero">
+    <div class="about-photo">
+      <img src="/static/me.png" alt="Gabriele with his dog Ector in London" width="1280" height="960">
+      <p>Me in London and my best friend for life, Ector.</p>
+    </div>
+    <div class="about-intro">
+      <p class="about-eyebrow">About me</p>
+      <h1>Curious about how things work. Happiest when building them.</h1>
+      <p>
+        I’m Gabriele, a freelance software consultant and open source developer based
+        in Milan. I’ve spent my career moving between layers—from firmware and backend
+        systems to web products, cloud platforms, and local AI.
+      </p>
+      <p>
+        What has stayed constant is the urge to understand the whole system, make it
+        simpler, and leave behind something useful that other people can own.
+      </p>
+    </div>
+  </section>
+
+  <section class="about-story" aria-labelledby="story-title">
+    <div>
+      <p class="about-number">01 · The short version</p>
+      <h2 id="story-title">A career built across the stack.</h2>
+    </div>
+    <div class="about-story-copy">
+      <p>
+        I started in the early 2000s, when shipping software could mean buying a Dell
+        server and renting rack space in a server farm. I worked on firmware and backend
+        systems first, then followed the web through APIs, SPAs, containers, infrastructure
+        as code, CI/CD, and AWS architecture.
+      </p>
+      <p>
+        Today I still like being close to every part of the puzzle: shaping an idea,
+        choosing the architecture, writing the difficult code, and getting it into
+        production. Recently, much of that curiosity has gone into local AI, inference,
+        RAG, and open source tools with small operational footprints.
+      </p>
+    </div>
+  </section>
+
+  <section class="about-interests" aria-labelledby="interests-title">
+    <div class="about-section-heading">
+      <p class="about-number">02 · Beyond work</p>
+      <h2 id="interests-title">The other things that keep me moving.</h2>
+    </div>
+    <div class="about-interest-grid">
+      <article>
+        <span aria-hidden="true">⌁</span>
+        <h3>Mountains & long walks</h3>
+        <p>Hiking is how I reset. Ector made sure that walking was never optional—and always better.</p>
+      </article>
+      <article>
+        <span aria-hidden="true">♬</span>
+        <h3>Blues & guitar</h3>
+        <p>I like music with space, character, and a little imperfection. Playing blues is a good antidote to screens.</p>
+      </article>
+      <article>
+        <span aria-hidden="true">{ }</span>
+        <h3>Open source</h3>
+        <p>I enjoy software that can be inspected, learned from, changed, and genuinely owned by the people using it.</p>
+      </article>
+      <article>
+        <span aria-hidden="true">∞</span>
+        <h3>Lifelong learning</h3>
+        <p>A new language, a lower-level implementation, or an unfamiliar AWS service: there is always another layer.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="about-note">
+    <p>
+      I care about thoughtful work, direct communication, and collaborating with people
+      who bring their own expertise to the table. The best projects teach everyone involved something new.
+    </p>
+    <div>
+      <a href="/projects/">What I build <span aria-hidden="true">→</span></a>
+      <a href="/consultancy/">Work with me <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</main>
 {% endblock %}

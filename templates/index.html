@@ -1,152 +1,156 @@
 {% extends "layout.html" %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Software Consultant & Open Source Developer{% endblock %}
 
 {% block meta %}
 <link rel="canonical" href="https://gabrielemastrapasqua.com/">
-<meta name="description" content="Gabriele Mastrapasqua—software consultant, polyglot developer, open source enthusiast, and lifelong learner.">
+<meta name="description" content="Gabriele Mastrapasqua is a software consultant in Milan working across cloud architecture, product engineering, local AI, and open source.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Gabriele Mastrapasqua",
+  "url": "https://gabrielemastrapasqua.com/",
+  "jobTitle": "Software Consultant",
+  "sameAs": [
+    "https://github.com/gabriele-mastrapasqua",
+    "https://www.linkedin.com/in/gabriele-mastrapasqua-76ba55110/"
+  ]
+}
+</script>
 {% endblock %}
 
 {% block content %}
-
-<div class="site-wrapper">
-  <div class="site-wrapper-inner">
-    <div class="cover-container">
-      <div class="inner cover">
-
-        <div class="row">
-
-          <div class="col">
-            <h1 >Hi! I am Gabriele Mastrapasqua 👋</h1>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <p>I'm a passionate technologist and open source enthusiast, software consultant, polyglot developer, and a
-              lifelong learner.</p>
-            <p>It's my mission in life to empower creativity through software, writing, and music.</p>
-            <p>I like to walk my dog, hiking in the mountains, play some blues on my guitar.</p>
-            <p></p>
-            <!--p>
-                <ul>
-                  <li><a href="/equipment.html">Equipment</a></li>
-                </ul>
-              </p-->
-
-
-          </div>
-
-          <div class="col-md-8" style="padding: 30px">
-            <img src="./static/me.png" alt="me and Ector" title="me and Ector" class="img-me img-fluid">
-            <p style="font-size: 13px; text-align: left; font-style: italic; color: #666; ">
-              Me in London ✈️ and my best friend for life 🐶 Ector.
-            </p>
-          </div>
-
-        </div>
-
-
-        <div class="row">
-          <div class="col">
-            <h3 >My experience</h3>
-
-            <ul>
-              <li>Started as a backend developer and firmware engineer back when deploying projects meant buying Linux
-                Dell servers and renting rack space in server farms (ah, the 2000s!). Those were simpler times when
-                vanilla JS and a touch of jQuery could make web interfaces genuinely interactive...</li>
-              <li>Evolved into a full-stack developer building APIs and SPAs with Angular, Vue, React, Next.js, Svelte,
-                and whatever framework happened to be trending that week</li>
-              <li>Wielded Java, Python, TypeScript, and a growing arsenal of languages as projects demanded</li>
-              <li>Embraced the containerization revolution with Docker, Terraform, CI/CD pipelines, and the full DevOps
-                toolkit</li>
-              <li>Specialized as an AWS architect, designing solutions for diverse clients across various industries
-              </li>
-              <li>I thrive on understanding every piece of the puzzle—from initial concept to production deployment</li>
-              <li>I work best with cross-functional teams where everyone brings their expertise to the table</li>
-              <li>I prefer working with well-paying clients as a consultant rather than a contractor or "fake employee."
-                I'm selective about projects and only take on work that genuinely interests me</li>
-
-
-            </ul>
-          </div>
-          <div class="col">
-
-            <h3>Interested in</h3>
-
-            <ul>
-              <li>Cloudflare services, especially R2's free egress, serverless functions, LLM inference, VPNs, and
-                tunnels</li>
-              <li>Elixir and the Phoenix Framework with LiveView—building server-side applications with interactive web
-                interfaces, all in one cohesive approach</li>
-              <li>HTMX: returning to the elegance of HTML and server-side web development, like it's the 2000s but
-                better</li>
-              <li>Go: finally, a simpler language with an excellent standard library that makes me want to retire Java
-                and C#</li>
-              <li>🦀 Rust: finally, something that makes me want to ditch C++!</li>
-              <li>Alternative hosting solutions beyond the Big 3 cloud providers</li>
-              <li>Self-hosting and local LLM inference</li>
-              <li>Chatbots, RAG systems, Ollama, LM Studio</li>
-              <li>Open source LLMs</li>
-              <li>Postgres ❤️</li>
-
-
-            </ul>
-
-
-          </div>
-
-        </div>
-
-
-        <div class="row">
-          <div class="col">
-            <h3 >What is like to work with me?</h3>
-
-            <p>Check my <a target="_blank"
-                href="https://www.linkedin.com/in/gabriele-mastrapasqua-76ba55110/details/recommendations/?detailScreenTabIndex=0">Linkedin
-                recommendations</a></p>
-            <p>Interested? reach me out by <a href="mailto:gabriele.mastrapasqua@gmail.com">email</a></p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col">
-            <h3 >Contacts</h3>
-
-            <p>
-              I live in Milan, Italy 🇮🇹. <a href="mailto:gabriele.mastrapasqua@gmail.com">Reach out</a> if you'd like to
-              chat.
-            </p>
-
-            <p class="footer links">
-              <a href="https://gabrielemastrapasqua.com/blog" title="Blog"><i class="fas fa-rss"
-                  aria-hidden="true"></i></a> ·
-              <a href="https://github.com/gabriele-mastrapasqua" rel="noopener" title="GitHub"><i class="fab fa-github"
-                  aria-hidden="true"></i></a> ·
-              <a href="https://www.linkedin.com/in/gabriele-mastrapasqua-76ba55110/" rel="noopener" title="Linkedin"><i
-                  class="fab fa-linkedin" aria-hidden="true"></i></a> ·
-              <a href="mailto:gabriele.mastrapasqua@gmail.com" title="Email"><i class="fas fa-envelope"
-                  aria-hidden="true"></i></a>
-            </p>
-          </div>
-        </div>
+<main class="home-page">
+  <section class="home-hero">
+    <div class="home-hero-copy">
+      <p class="home-eyebrow">Freelance software engineer & consultant · Milan, Italy</p>
+      <h1>I build useful software, from cloud architecture to local AI.</h1>
+      <p class="home-lead">
+        I’m Gabriele—a hands-on technologist helping teams design, ship, and improve
+        software across AWS, backend systems, developer platforms, and open source AI.
+      </p>
+      <div class="home-actions">
+        <a class="home-button home-button-primary" href="/consultancy/">Work with me <span aria-hidden="true">→</span></a>
+        <a class="home-button home-button-secondary" href="/projects/">Explore my projects</a>
       </div>
-
+      <ul class="home-signals" aria-label="Areas of experience">
+        <li>Building since the early 2000s</li>
+        <li>AWS & cloud architecture</li>
+        <li>Open source & local AI</li>
+      </ul>
     </div>
-  </div>
-</div>
+    <div class="network-field network-field-home" aria-hidden="true">
+      <svg viewBox="0 0 760 520" role="presentation">
+        <g class="network-links">
+          <path d="M86 120 L214 72 L332 154 L468 82 L638 132" />
+          <path d="M86 120 L178 252 L332 154 L382 304 L548 242 L638 132" />
+          <path d="M178 252 L104 402 L274 438 L382 304 L506 430 L664 360" />
+          <path d="M332 154 L548 242 L664 360" />
+          <path d="M214 72 L178 252 L382 304 L468 82" />
+          <path d="M274 438 L548 242 L506 430" />
+          <path d="M86 120 Q362 18 638 132" />
+          <path d="M104 402 Q318 202 548 242" />
+          <path d="M214 72 Q420 238 506 430" />
+          <path d="M178 252 Q430 474 664 360" />
+          <path d="M468 82 Q594 278 274 438" />
+          <path d="M86 120 Q350 390 664 360" />
+        </g>
+        <g class="network-pulses">
+          <path pathLength="100" d="M86 120 L214 72 L332 154 L468 82 L638 132" />
+          <path pathLength="100" d="M86 120 L178 252 L332 154 L382 304 L548 242 L638 132" />
+          <path pathLength="100" d="M104 402 L274 438 L382 304 L506 430 L664 360" />
+          <path pathLength="100" d="M214 72 L178 252 L382 304 L468 82" />
+        </g>
+        <g class="network-stars">
+          <circle cx="52" cy="242" r="3" /><circle cx="132" cy="52" r="2" />
+          <circle cx="256" cy="286" r="2.5" /><circle cx="342" cy="34" r="2" />
+          <circle cx="430" cy="206" r="3" /><circle cx="574" cy="54" r="2.5" />
+          <circle cx="704" cy="230" r="2" /><circle cx="606" cy="466" r="3" />
+          <circle cx="376" cy="474" r="2" /><circle cx="46" cy="462" r="2.5" />
+        </g>
+        <g class="network-nodes">
+          <circle cx="86" cy="120" r="11" /><circle cx="214" cy="72" r="8" />
+          <circle cx="332" cy="154" r="15" class="network-hub" />
+          <circle cx="468" cy="82" r="9" /><circle cx="638" cy="132" r="12" />
+          <circle cx="178" cy="252" r="13" /><circle cx="382" cy="304" r="17" class="network-hub" />
+          <circle cx="548" cy="242" r="12" /><circle cx="104" cy="402" r="8" />
+          <circle cx="274" cy="438" r="11" /><circle cx="506" cy="430" r="9" />
+          <circle cx="664" cy="360" r="14" />
+        </g>
+      </svg>
+    </div>
+  </section>
 
-<!-- microdata for google -->
-<div itemscope="" itemtype="http://data-vocabulary.org/Person" class="hidden">
-  <span itemprop="name">Gabriele Mastrapasqua</span>
-  <span itemprop="nickname">Gabriele</span>
-  <a href="http://gabrielemastrapasqua.com/" itemprop="url">gabrielemastrapasqua.com</a>
-  <span itemprop="address" itemscope="" itemtype="http://data-vocabulary.org/Address">
-    <span itemprop="locality">Milan</span>,
-    <span itemprop="state">Italy</span>
-  </span>
-</div>
+  <section class="home-section home-services" aria-labelledby="services-title">
+    <div class="home-section-heading">
+      <p class="home-section-number">01 · What I do</p>
+      <h2 id="services-title">Senior thinking, hands-on delivery.</h2>
+      <p>I can help at the whiteboard, in the codebase, and through the path to production.</p>
+    </div>
+    <div class="home-service-grid">
+      <article>
+        <span>Cloud</span>
+        <h3>Architecture & platforms</h3>
+        <p>AWS systems, infrastructure choices, delivery pipelines, reliability, and pragmatic modernization.</p>
+      </article>
+      <article>
+        <span>Software</span>
+        <h3>Product engineering</h3>
+        <p>APIs, backend and full-stack products, technical direction, prototypes, and production delivery.</p>
+      </article>
+      <article>
+        <span>AI</span>
+        <h3>Local AI & data</h3>
+        <p>Inference systems, RAG, document pipelines, open models, and tools that keep users in control.</p>
+      </article>
+    </div>
+    <a class="home-inline-link" href="/consultancy/">See consultancy services <span aria-hidden="true">→</span></a>
+  </section>
 
+  <section class="home-section home-work" aria-labelledby="work-title">
+    <div class="home-section-heading">
+      <p class="home-section-number">02 · Selected work</p>
+      <h2 id="work-title">Things I’ve been building lately.</h2>
+    </div>
+    <div class="home-work-grid">
+      <a class="home-work-card home-work-featured" href="https://github.com/gabriele-mastrapasqua/qwen3-tts" target="_blank" rel="noopener">
+        <span class="home-work-type">Pure C · Local AI</span>
+        <h3>qwen3-tts <span aria-hidden="true">↗</span></h3>
+        <p>A cross-platform Qwen3-TTS inference engine with voice cloning, streaming, quantization, Metal, and CUDA.</p>
+      </a>
+      <a class="home-work-card" href="https://github.com/gabriele-mastrapasqua/linklore" target="_blank" rel="noopener">
+        <span class="home-work-type">Go · Local-first</span>
+        <h3>linklore <span aria-hidden="true">↗</span></h3>
+        <p>Bookmarks, hybrid search, and private RAG in one Go binary and one SQLite file.</p>
+      </a>
+      <a class="home-work-card home-work-book" href="/book/">
+        <span class="home-work-type">Published · BPB</span>
+        <h3>AWS Cloud Practitioner Exam Guide <span aria-hidden="true">→</span></h3>
+        <p>The practical AWS guide I wish I had when I was starting out.</p>
+      </a>
+    </div>
+    <a class="home-inline-link" href="/projects/">View all open source projects <span aria-hidden="true">→</span></a>
+  </section>
 
+  <section class="home-personal">
+    <div>
+      <p class="home-section-number">03 · Away from the keyboard</p>
+      <h2>Still curious, rarely still.</h2>
+    </div>
+    <p>
+      I’m a lifelong learner who likes mountain hikes, long walks with Ector, and playing
+      some blues on the guitar. Software is the work; curiosity is the thread running through it.
+      <a href="/about/">A little more about me →</a>
+    </p>
+  </section>
 
+  <section class="home-contact">
+    <p>Have a difficult technical problem or an ambitious product to ship?</p>
+    <div>
+      <a href="mailto:gabriele.mastrapasqua@gmail.com">Let’s talk <span aria-hidden="true">→</span></a>
+      <span>Available for selected consulting engagements.</span>
+    </div>
+  </section>
+</main>
 {% endblock %}

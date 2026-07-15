@@ -26,21 +26,26 @@
   {% block meta %}{% endblock %}
 </head>
 <body>
+  <div class="signal-horizon signal-horizon-top" aria-hidden="true">
+    <span></span><span></span><span></span>
+  </div>
   <div class="container">
     
-    <nav>
-
-
-      <a href="/">Home</a> - <a href="/blog/">Blog</a> - <a href="/projects/">Projects</a> - <a href="/book/">AWS Book</a> <!--- <a href="/about.html">About me</a-->
-      
-      </nav>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="/">Home</a>
+      <a href="/consultancy/">Consultancy</a>
+      <a href="/projects/">Projects</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about/">About me</a>
+      <a href="/book/">AWS Book</a>
+    </nav>
 
     {% block content %}{% endblock %}
 
     <footer>
       <div class="row">
         <div class="col-md-1 d-none d-md-block img-me-container">
-          <img class="img-me img-fluid" src="/static/me.png">
+          <img class="img-me img-fluid" src="/static/me.png" alt="Gabriele Mastrapasqua">
         </div>
         <div class="col-md info">
           <span class="name">Gabriele Mastrapasqua</span><br>
@@ -59,6 +64,10 @@
       </div>
 
     </footer>
+  </div>
+
+  <div class="signal-horizon signal-horizon-bottom" aria-hidden="true">
+    <span></span><span></span><span></span>
   </div>
 
   <!-- webfonts & icons-->
