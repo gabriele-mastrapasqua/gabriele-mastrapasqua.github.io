@@ -10,6 +10,8 @@
   <meta name="author" content="Gabriele Mastrapasqua">
   <link rel="shortcut icon" href="https://gabrielemastrapasqua.com/favicon.ico">
 
+  {% block meta %}{% endblock %}
+
   <title>{% block title %}Blog{% endblock %} - Gabriele Mastrapasqua</title>
 
   <!-- RSS -->
@@ -23,8 +25,6 @@
 
   <!-- Syntax highlighting css -->
   <link href="/static/pygments.css" rel="stylesheet">
-
-  {% block meta %}{% endblock %}
 </head>
 <body>
   <div class="signal-horizon signal-horizon-top" aria-hidden="true">
