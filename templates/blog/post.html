@@ -33,6 +33,7 @@
   "headline": {{ post.title|tojson }},
   "description": {{ post.description|default('', true)|tojson }},
   "datePublished": "{{ post.date.isoformat() }}",
+  "dateModified": "{{ post.lastmod.isoformat() }}",
   "author": {
     "@type": "Person",
     "name": "Gabriele Mastrapasqua",

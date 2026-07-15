@@ -1,27 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% for loc, lastmod in pages %}
   <url>
-    <loc>{{ root }}/</loc>
+    <loc>{{ root }}{{ loc }}</loc>
+    {% if lastmod %}<lastmod>{{ lastmod.isoformat() }}</lastmod>{% endif %}
   </url>
-  <url>
-    <loc>{{ root }}/blog/</loc>
-  </url>
-  <url>
-    <loc>{{ root }}/about/</loc>
-  </url>
-  <url>
-    <loc>{{ root }}/projects/</loc>
-  </url>
-  <url>
-    <loc>{{ root }}/consultancy/</loc>
-  </url>
-  <url>
-    <loc>{{ root }}/book/</loc>
-  </url>
+  {% endfor %}
   {% for post in posts if not post.get('hidden') %}
   <url>
     <loc>{{ root }}/blog/{{ post.stem }}/</loc>
-    <lastmod>{{ post.date.isoformat() }}</lastmod>
+    <lastmod>{{ post.lastmod.isoformat() }}</lastmod>
   </url>
   {% endfor %}
 </urlset>

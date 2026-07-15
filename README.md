@@ -12,6 +12,11 @@ python serve.py
 python build.py
 ```
 
+The sitemap is regenerated during every build. Blog `lastmod` values use the
+latest of the publication date, the source file's last Git commit, and an
+optional `updated: YYYY-MM-DD` front matter field. CI checks out the full Git
+history so edits to existing posts receive an accurate modification date.
+
 
 ## TODO
 

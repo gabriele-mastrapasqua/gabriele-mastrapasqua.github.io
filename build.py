@@ -1,4 +1,5 @@
 import pathlib
+import subprocess
 from typing import Sequence
 import shutil
 import hashlib
@@ -63,6 +64,39 @@ def parse_source(source: pathlib.Path) -> frontmatter.Post:
     return post
 
 
+def git_last_modified(path: pathlib.Path) -> datetime.date | None:
+    """Return the last committed change date without using build time."""
+    try:
+        result = subprocess.run(
+            ["git", "log", "-1", "--format=%cs", "--", str(path)],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+    except (FileNotFoundError, subprocess.CalledProcessError):
+        return None
+
+    value = result.stdout.strip()
+    return datetime.date.fromisoformat(value) if value else None
+
+
+def as_date(value) -> datetime.date | None:
+    if isinstance(value, datetime.datetime):
+        return value.date()
+    if isinstance(value, datetime.date):
+        return value
+    if isinstance(value, str):
+        return datetime.date.fromisoformat(value)
+    return None
+
+
+def post_last_modified(post: frontmatter.Post) -> datetime.date:
+    """Use explicit metadata or Git history, never the CI build timestamp."""
+    candidates = [as_date(post.get("date")), as_date(post.get("updated"))]
+    candidates.append(git_last_modified(post["source"]))
+    return max(candidate for candidate in candidates if candidate is not None)
+
+
 def fixup_styles(content: str) -> str:
     content = content.replace("<table>", '<table class="table">')
     return content
@@ -110,6 +144,8 @@ def write_posts() -> Sequence[frontmatter.Post]:
             copy_post_resources(post)
         else:
             post["stem"] = source.stem
+
+        post["lastmod"] = post_last_modified(post)
 
         write_post(post, content)
 
@@ -201,8 +237,25 @@ def write_rss(posts: Sequence[frontmatter.Post]):
 def write_sitemap(posts: Sequence[frontmatter.Post]):
     path = pathlib.Path("./docs/sitemap.xml")
     template = jinja_env.get_template("sitemap.xml")
+    visible_posts = [post for post in posts if not post.get("hidden")]
+    blog_lastmod = max(
+        (post["lastmod"] for post in visible_posts),
+        default=git_last_modified(pathlib.Path("templates/blog/index.html")),
+    )
+    pages = [
+        ("/", git_last_modified(pathlib.Path("templates/index.html"))),
+        ("/blog/", blog_lastmod),
+        ("/about/", git_last_modified(pathlib.Path("templates/about.html"))),
+        ("/projects/", git_last_modified(pathlib.Path("templates/projects.html"))),
+        (
+            "/consultancy/",
+            git_last_modified(pathlib.Path("templates/consultancy.html")),
+        ),
+        ("/book/", git_last_modified(pathlib.Path("templates/book.html"))),
+    ]
     rendered = template.render(
         posts=posts,
+        pages=pages,
         root="https://gabrielemastrapasqua.com",
     )
     path.write_text(rendered)
