@@ -26,4 +26,19 @@ The real magic is how they complement each other. Ghostty is the canvas, tmux is
 
 These tools made my daily flow genuinely more pleasant. I don't think about them — they just work.
 
+<details>
+<summary>Ghostty + tmux: macOS-style keybindings and window titles</summary>
+
+I wanted tmux to feel as natural as macOS Terminal, so I configured Ghostty to send keystrokes that tmux understands:
+
+- **`Cmd + T`** → `prefix + c` (new tmux tab)
+- **`Ctrl + Tab`** → `prefix + n` (next tab)
+- **`Ctrl + Shift + Tab`** → `prefix + p` (previous tab)
+
+Each tmux window is automatically renamed to the basename of its working directory via a hook on `#{pane_current_path}`, so every tab shows the folder I'm working in — no more guessing.
+
+This setup is part of my dotfiles: Ghostty maps the shortcuts, tmux handles the tab lifecycle, and the result is indistinguishable from the built-in macOS terminal tabs, but with full tmux persistence and session management underneath.
+
+</details>
+
 Check the repo here: [github.com/gabriele-mastrapasqua/dotfiles](https://github.com/gabriele-mastrapasqua/dotfiles)
