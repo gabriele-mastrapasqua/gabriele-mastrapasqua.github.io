@@ -1,24 +1,22 @@
-# simple static blog generator in py3
+# gabrielemastrapasqua.com
 
-## how to watch for changes
+My personal website — a lightweight static site built with Python.
 
-```python
+## Stack
+
+- **Generator**: plain Python + `markdown` + `jinja2` + `python-frontmatter`
+- **CSS**: Bootstrap 5 + custom styles + WitchHazel Pygments theme
+- **Templates**: Jinja2, no JS framework
+- **Hosting**: GitHub Pages
+
+## Commands
+
+```bash
+# dev — watches srcs/ and rebuilds on change
 python serve.py
-```
 
-## how to build
-
-```python
+# production build
 python build.py
 ```
 
-The sitemap is regenerated during every build. Blog `lastmod` values use the
-latest of the publication date, the source file's last Git commit, and an
-optional `updated: YYYY-MM-DD` front matter field. CI checks out the full Git
-history so edits to existing posts receive an accurate modification date.
-
-
-## TODO
-
-- [ ] tags in posts + index for each tags
-- [ ] write 1 article about journaling and gratitute diary, as I use them
+The output lands in `docs/` (GitHub Pages root). The sitemap regenerates every build. Blog `lastmod` values use the latest of publication date, source file's last Git commit, and an optional `updated: YYYY-MM-DD` front matter field.
