@@ -1,0 +1,33 @@
+# Gabriele Mastrapasqua
+
+> Gabriele Mastrapasqua is a freelance software consultant and open source developer based in Milan, Italy. He helps teams design, build, and improve software across AWS and cloud architecture, backend systems, product engineering, local AI, and developer platforms.
+
+Gabriele works directly with clients, from technical decisions and prototypes through production delivery and knowledge transfer. He is also a lifelong learner, mountain walker, dog person, and blues guitar player.
+
+## Main pages
+
+- [Home](https://gabrielemastrapasqua.com/): Overview of Gabriele's work, interests, and selected projects.
+- [About Gabriele](https://gabrielemastrapasqua.com/about/): Background, experience, and personal interests.
+- [Software consultancy](https://gabrielemastrapasqua.com/consultancy/): Consulting services, working style, and the kinds of technical problems Gabriele helps solve.
+- [Open source projects](https://gabrielemastrapasqua.com/projects/): Local AI, search, OCR, inference tooling, and developer tools.
+- [AWS Cloud Practitioner Exam Guide](https://gabrielemastrapasqua.com/book/): Gabriele's practical AWS fundamentals book, published by BPB Publications.
+
+## Selected open source projects
+
+- [qwen3-tts](https://github.com/gabriele-mastrapasqua/qwen3-tts): Pure-C, cross-platform Qwen3-TTS inference with voice cloning, streaming, quantization, Metal, and CUDA support.
+- [linklore](https://github.com/gabriele-mastrapasqua/linklore): Local-first bookmarks, hybrid search, and private RAG in one Go binary and one SQLite file.
+- [fastapi-ocr](https://github.com/gabriele-mastrapasqua/fastapi-ocr): FastAPI-based PDF and image OCR with switchable Tesseract and PaddleOCR engines.
+- [codex-lean-team](https://github.com/gabriele-mastrapasqua/codex-lean-team): A lean, adaptive multi-agent engineering setup for Codex CLI.
+- [vllm-bench](https://github.com/gabriele-mastrapasqua/vllm-bench): CLI benchmarking for OpenAI-compatible inference servers such as vLLM, Ollama, and llama.cpp.
+
+## Writing
+
+- [Blog](https://gabrielemastrapasqua.com/blog/): Articles about open source, local AI, cloud, and software engineering.
+{% for post in posts if not post.get('hidden') %}- [{{ post.title }}](https://gabrielemastrapasqua.com/blog/{{ post.stem }}/): {{ post.description }}
+{% endfor %}
+
+## Contact
+
+- [Email Gabriele](mailto:gabriele.mastrapasqua@gmail.com): Enquiries about selected consulting engagements.
+- [LinkedIn](https://www.linkedin.com/in/gabriele-mastrapasqua-76ba55110/): Professional profile and client recommendations.
+- [GitHub](https://github.com/gabriele-mastrapasqua): Source code, experiments, and public projects.

@@ -295,6 +295,12 @@ def write_robots():
     path.write_text(template.render(root="https://gabrielemastrapasqua.com"))
 
 
+def write_llms(posts: Sequence[frontmatter.Post]):
+    path = pathlib.Path("./docs/llms.txt")
+    template = jinja_env.get_template("llms.txt")
+    path.write_text(template.render(posts=posts))
+
+
 def write_cname():
     pathlib.Path("./docs/CNAME").write_text("gabrielemastrapasqua.com")
 
@@ -314,6 +320,7 @@ def main():
     write_rss(posts)
     write_sitemap(posts)
     write_robots()
+    write_llms(posts)
     write_cname()
 
 
